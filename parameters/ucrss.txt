@@ -1,0 +1,3 @@
+pick_otus:enable_rev_strand_match True
+assign_taxonomy:id_to_taxonomy_fp $REF_TAX
+assign_taxonomy:reference_seqs_fp $REF_SEQS
