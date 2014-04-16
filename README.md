@@ -1,4 +1,6 @@
-cloaked-octo-ninja
-==================
+cloaked-octo-ninja: Comparative analysis of high-level OTU picking protocols
+============================================================================
 
-Comparison data for comparison of high-level OTU picking protocols
+```
+source config-env.sh
+```
