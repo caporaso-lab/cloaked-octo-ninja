@@ -9,7 +9,7 @@ source config-env.sh
 To obtain the "tiny test" data set, run:
 
 ```
-
+python -c "from qiime.test import write_test_data; write_test_data('tiny-test')"
 ```
 
 To run the four OTU picking protocols on the tiny-test data set, run:
