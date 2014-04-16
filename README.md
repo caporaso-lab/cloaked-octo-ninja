@@ -52,3 +52,45 @@ $PROJECT_DIR/parameters/ucr.txt -aO 10; pick_closed_reference_otus.py -i <in>
 pick_open_reference_otus.py -i <in> -o <out>/ucrss -p
 $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10
 ```
+
+Whole body
+```
+echo "source /home/caporaso/analysis/2014.04.16-ss-otus/config-env.sh;
+pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/uc -p
+$PROJECT_DIR/parameters/uc.txt -aO 10; pick_de_novo_otus.py -i $WHOLE_BODY_SEQS
+-o $PROJECT_DIR/whole-body-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10;
+pick_closed_reference_otus.py -i $WHOLE_BODY_SEQS -o
+$PROJECT_DIR/whole-body-otus/ucrC -p $PROJECT_DIR/parameters/ucr.txt -r
+$REF_SEQS -aO 10; pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o
+$PROJECT_DIR/whole-body-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r
+$REF_SEQS -aO 10" | qsub -keo -N otus-wb
+```
+
+Moving Pictures
+
+```
+echo "source /home/caporaso/analysis/2014.04.16-ss-otus/config-env.sh;
+pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o
+$PROJECT_DIR/moving-pictures-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10;
+pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o
+$PROJECT_DIR/moving-pictures-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO
+10; pick_closed_reference_otus.py -i $MOVING_PICTURES_SEQS -o
+$PROJECT_DIR/moving-pictures-otus/ucrC -p $PROJECT_DIR/parameters/ucr.txt -r
+$REF_SEQS -aO 10; pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o
+$PROJECT_DIR/moving-pictures-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r
+$REF_SEQS -aO 10" | qsub -keo -N mpotus
+```
+
+88 soils
+
+```
+echo "source /home/caporaso/analysis/2014.04.16-ss-otus/config-env.sh;
+pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/uc -p
+$PROJECT_DIR/parameters/uc.txt -aO 10; pick_de_novo_otus.py -i $SOILS_SEQS -o
+$PROJECT_DIR/88-soils-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10;
+pick_closed_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrC
+-p $PROJECT_DIR/parameters/ucr.txt -r $REF_SEQS -aO 10;
+pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss
+-p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10" | qsub -keo -N
+soilotus
+```
