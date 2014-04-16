@@ -26,6 +26,22 @@ $PROJECT_DIR/tiny-test-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r
 $REF_SEQS -aO 10
 ```
 
+We can then obtain run-time information as follows:
+
+```
+$ cd $PROJECT_DIR
+caporaso@bacon 11:02:11 2014.04.16-ss-otus@master$ grep "^Logging" tiny-test-otus/*/log*txt
+tiny-test-otus/uc/log_20140416105426.txt:Logging started at 10:54:26 on 16 Apr 2014
+tiny-test-otus/uc/log_20140416105426.txt:Logging stopped at 10:55:05 on 16 Apr 2014
+tiny-test-otus/ucrC/log_20140416105545.txt:Logging started at 10:55:45 on 16 Apr 2014
+tiny-test-otus/ucrC/log_20140416105545.txt:Logging stopped at 10:57:00 on 16 Apr 2014
+tiny-test-otus/ucr/log_20140416105506.txt:Logging started at 10:55:06 on 16 Apr 2014
+tiny-test-otus/ucr/log_20140416105506.txt:Logging stopped at 10:55:45 on 16 Apr 2014
+tiny-test-otus/ucrss/log_20140416105700.txt:Logging started at 10:57:00 on 16 Apr 2014
+tiny-test-otus/ucrss/log_20140416105700.txt:Logging stopped at 10:59:53 on 16 Apr 2014
+```
+
+
 This command is of the form:
 
 ```
