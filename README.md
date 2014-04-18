@@ -94,6 +94,14 @@ echo "source /home/caporaso/analysis/2014.04.16-ss-otus/config-env.sh; pick_de_n
 
 ```
 $ grep "^Logging" whole-body-otus/*fast/log*txt
+whole-body-otus/uc_fast/log_20140418065050.txt:Logging started at 06:50:50 on 18 Apr 2014
+whole-body-otus/uc_fast/log_20140418065050.txt:Logging stopped at 06:58:59 on 18 Apr 2014
+whole-body-otus/ucrC_fast/log_20140418070920.txt:Logging started at 07:09:20 on 18 Apr 2014
+whole-body-otus/ucrC_fast/log_20140418070920.txt:Logging stopped at 07:10:33 on 18 Apr 2014
+whole-body-otus/ucr_fast/log_20140418065859.txt:Logging started at 06:58:59 on 18 Apr 2014
+whole-body-otus/ucr_fast/log_20140418065859.txt:Logging stopped at 07:09:20 on 18 Apr 2014
+whole-body-otus/ucrss_fast/log_20140418071034.txt:Logging started at 07:10:34 on 18 Apr 2014
+whole-body-otus/ucrss_fast/log_20140418071034.txt:Logging stopped at 07:22:21 on 18 Apr 2014
 ```
 
 
@@ -130,6 +138,14 @@ echo "source /home/caporaso/analysis/2014.04.16-ss-otus/config-env.sh; pick_de_n
 
 ```
 $ grep "^Logging" 88-soils-otus/*_fast/log*txt
+88-soils-otus/uc_fast/log_20140418065332.txt:Logging started at 06:53:32 on 18 Apr 2014
+88-soils-otus/uc_fast/log_20140418065332.txt:Logging stopped at 07:08:46 on 18 Apr 2014
+88-soils-otus/ucrC_fast/log_20140418072618.txt:Logging started at 07:26:18 on 18 Apr 2014
+88-soils-otus/ucrC_fast/log_20140418072618.txt:Logging stopped at 07:27:03 on 18 Apr 2014
+88-soils-otus/ucr_fast/log_20140418070846.txt:Logging started at 07:08:46 on 18 Apr 2014
+88-soils-otus/ucr_fast/log_20140418070846.txt:Logging stopped at 07:26:18 on 18 Apr 2014
+88-soils-otus/ucrss_fast/log_20140418072703.txt:Logging started at 07:27:03 on 18 Apr 2014
+88-soils-otus/ucrss_fast/log_20140418072703.txt:Logging stopped at 07:44:04 on 18 Apr 2014
 ```
 
 
@@ -166,6 +182,41 @@ echo "source /home/caporaso/analysis/2014.04.16-ss-otus/config-env.sh; pick_de_n
 ```
 $ grep "^Logging" moving-pictures-otus/*_fast/log*txt
 ```
+
+Open-reference OTUs with filters
+--------------------------------
+
+```
+pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1
+
+pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1
+
+pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1
+```
+
+```
+pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_wfilter -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1
+
+pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss_wfilter -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1
+
+pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_wfilter -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1
+```
+
+
+Tables/figures to generate
+--------------------------
+
+ - table of run times for all runs above, by study
+ - table of compare_alpha_diversity.py results for ucrss versus the three other methods, by study
+ - table of compare_alpha_diversity.py results for ucrss versus the three other methods, by study (for uclust "fast" mode)
+ - table of compare_distance_matrices.py results (i.e., Mantel test) for ucrss versus the three other methods, by study
+ - table of compare_distance_matrices.py results (i.e., Mantel test) for ucrss versus the three other methods, by study (for uclust "fast" mode)
+ - table of top ten significant OTUs from group_significance.py for all four methods, by study
+ - table of top ten significant OTUs from group_significance.py for all four methods, by study (for uclust "fast" mode)
+  - table comparing ucrss versus ucrss fast mode versus ucrss with prefiler versus ucrss fast mode with prefilter on alpha and beta diversity
+  - Sean's plot of new OTUs by ENV_BIOME for the EMP run
+
+
 
 
 QIIME config information
