@@ -62,8 +62,13 @@ tiny-test-otus/ucrss/log_20140416145014.txt:Logging stopped at 14:52:01 on 16 Ap
 Application to three data sets
 ------------------------------
 
-
 **Whole body**
+
+```
+count_seqs.py -i $WHOLE_BODY_SEQS
+
+792831  : /home/caporaso/analysis/whole-body/study_449_split_library_seqs.fna (Sequence lengths (mean +/- std): 228.5124 +/- 16.0318)
+```
 
 ```
 echo "source /home/caporaso/analysis/2014.04.16-ss-otus/config-env.sh; pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10; pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10; pick_closed_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10; pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10  --min_otu_size 1 --prefilter_percent_id 0.0" | qsub -keo -N otus-wb
@@ -75,13 +80,20 @@ whole-body-otus/uc/log_20140416151033.txt:Logging started at 15:10:33 on 16 Apr 
 whole-body-otus/uc/log_20140416151033.txt:Logging stopped at 15:28:48 on 16 Apr 2014
 whole-body-otus/ucrC/log_20140416154734.txt:Logging started at 15:47:34 on 16 Apr 2014
 whole-body-otus/ucrC/log_20140416154734.txt:Logging stopped at 15:54:16 on 16 Apr 2014
-whole-body-otus/ucr/log_20140416152848.txt:Logging started at 15:28:48 on 16 Apr 2014
-whole-body-otus/ucr/log_20140416152848.txt:Logging stopped at 15:47:34 on 16 Apr 2014
+whole-body-otus/ucr/log_20140417055939.txt:Logging started at 05:59:39 on 17 Apr 2014
+whole-body-otus/ucr/log_20140417055939.txt:Logging stopped at 06:17:41 on 17 Apr 2014
 whole-body-otus/ucrss/log_20140416155416.txt:Logging started at 15:54:16 on 16 Apr 2014
 whole-body-otus/ucrss/log_20140416155416.txt:Logging stopped at 16:14:28 on 16 Apr 2014
 ```
 
 **88 soils**
+
+```
+count_seqs.py -i $SOILS_SEQS
+
+151387  : /home/caporaso/analysis/88-soils/study_103_split_library_seqs.fna (Sequence lengths (mean +/- std): 230.7818 +/- 11.4761)
+```
+
 
 ```
 echo "source /home/caporaso/analysis/2014.04.16-ss-otus/config-env.sh; pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10; pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10; pick_closed_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10; pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0" | qsub -keo -N soilotus
@@ -93,8 +105,8 @@ $ grep "^Logging" 88-soils-otus/*/log*txt
 88-soils-otus/uc/log_20140416151050.txt:Logging stopped at 15:31:10 on 16 Apr 2014
 88-soils-otus/ucrC/log_20140416155149.txt:Logging started at 15:51:49 on 16 Apr 2014
 88-soils-otus/ucrC/log_20140416155149.txt:Logging stopped at 15:55:54 on 16 Apr 2014
-88-soils-otus/ucr/log_20140416153111.txt:Logging started at 15:31:11 on 16 Apr 2014
-88-soils-otus/ucr/log_20140416153111.txt:Logging stopped at 15:51:48 on 16 Apr 2014
+88-soils-otus/ucr/log_20140417055711.txt:Logging started at 05:57:11 on 17 Apr 2014
+88-soils-otus/ucr/log_20140417055711.txt:Logging stopped at 06:19:49 on 17 Apr 2014
 88-soils-otus/ucrss/log_20140416155554.txt:Logging started at 15:55:54 on 16 Apr 2014
 88-soils-otus/ucrss/log_20140416155554.txt:Logging stopped at 16:20:47 on 16 Apr 2014
 ```
@@ -103,12 +115,25 @@ $ grep "^Logging" 88-soils-otus/*/log*txt
 **Moving Pictures**
 
 ```
+count_seqs.py -i $MOVING_PICTURES_SEQS
+
+68666081  : /home/caporaso/analysis/moving-pictures/study_550_split_library_seqs.fna (Sequence lengths (mean +/- std): 123.2359 +/- 17.4283)
+```
+
+```
 echo "source /home/caporaso/analysis/2014.04.16-ss-otus/config-env.sh; pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10; pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10; pick_closed_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10; pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0" | qsub -keo -N mpotus
 ```
 
 ```
 $ grep "^Logging" moving-pictures-otus/*/log*txt
-
+moving-pictures-otus/uc/log_20140416180632.txt:Logging started at 18:06:32 on 16 Apr 2014
+moving-pictures-otus/uc/log_20140416180632.txt:Logging stopped at 01:49:00 on 17 Apr 2014
+moving-pictures-otus/ucrC/log_20140417132227.txt:Logging started at 13:22:27 on 17 Apr 2014
+moving-pictures-otus/ucrC/log_20140417132227.txt:Logging stopped at 22:24:09 on 17 Apr 2014
+moving-pictures-otus/ucr/log_20140417060006.txt:Logging started at 06:00:06 on 17 Apr 2014
+moving-pictures-otus/ucr/log_20140417060006.txt:Logging stopped at 18:56:22 on 17 Apr 2014
+moving-pictures-otus/ucrss/log_20140417132257.txt:Logging started at 13:22:57 on 17 Apr 2014
+moving-pictures-otus/ucrss/log_20140417132257.txt:Logging stopped at 23:34:49 on 17 Apr 2014
 ```
 
 
