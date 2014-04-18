@@ -1,0 +1,7 @@
+pick_otus:enable_rev_strand_match True
+assign_taxonomy:id_to_taxonomy_fp $REF_TAX
+assign_taxonomy:reference_seqs_fp $REF_SEQS
+pick_otus:max_accepts 1
+pick_otus:max_rejects 8
+pick_otus:stepwords 8
+pick_otus:word_length 8
