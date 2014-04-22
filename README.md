@@ -223,7 +223,7 @@ whole-body-otus/ucrss_wfilter/log_20140418120330.txt:Logging stopped at 12:38:13
 Next steps
 ----------
 
-See *OTU tables of interest...* list below for paths to the 10 OTU tables that need to be analyzed here.
+See *OTU tables of interest...* list below for paths to the 30 OTU tables that need to be analyzed here.
 
  0. Missing some trees - why???
  1. Determine even sampling depths for all OTU tables and generate evenly sampled OTU tables (``biom summarize_table; single_rarefaction.py``).
