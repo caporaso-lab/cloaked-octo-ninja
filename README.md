@@ -31,6 +31,13 @@ Subsampled open reference OTU picking (canonically abbreviated ucrss)
 pick_open_reference_otus.py -i <in> -o <out>/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0
 ```
 
+Subsampled open reference OTU picking (canonically abbreviated ucrss_w_filter)
+```
+pick_open_reference_otus.py -i <in> -o <out>/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1
+```
+
+We also run these with the "fast uclust" settings.
+
 
 To obtain the "tiny test" data set, which is useful for sanity checking commands, run:
 
@@ -139,6 +146,8 @@ pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_w
 Get runtimes
 ------------
 
+Runtimes are summarized in [this spreadsheet](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0).
+
 ```
 $ grep "^Logging" moving-pictures-otus/*/log*txt
 moving-pictures-otus/uc_fast/log_20140418065704.txt:Logging started at 06:57:04 on 18 Apr 2014
@@ -211,19 +220,64 @@ whole-body-otus/ucrss_wfilter/log_20140418120330.txt:Logging started at 12:03:30
 whole-body-otus/ucrss_wfilter/log_20140418120330.txt:Logging stopped at 12:38:13 on 18 Apr 2014
 ```
 
-Tables/figures to generate
---------------------------
+Next steps
+----------
 
- - table of run times for all runs above, by study
- - table of compare_alpha_diversity.py results for ucrss versus the three other methods, by study
- - table of compare_alpha_diversity.py results for ucrss versus the three other methods, by study (for uclust "fast" mode)
- - table of compare_distance_matrices.py results (i.e., Mantel test) for ucrss versus the three other methods, by study
- - table of compare_distance_matrices.py results (i.e., Mantel test) for ucrss versus the three other methods, by study (for uclust "fast" mode)
- - table of top ten significant OTUs from group_significance.py for all four methods, by study
- - table of top ten significant OTUs from group_significance.py for all four methods, by study (for uclust "fast" mode)
-  - table comparing ucrss versus ucrss fast mode versus ucrss with prefiler versus ucrss fast mode with prefilter on alpha and beta diversity
-  - Sean's plot of new OTUs by ENV_BIOME for the EMP run
+See *OTU tables of interest...* list below for paths to the 10 OTU tables that need to be analyzed here.
 
+ 0. Missing some trees - why???
+ 1. Determine even sampling depths for all OTU tables and generate evenly sampled OTU tables (``biom summarize_table; single_rarefaction.py``).
+ 2. Compute observed species for all evenly sampled OTU tables (``alpha diversity.py -m observed_species``).
+ 3. Generate weighted and unweighted UniFrac distance matrices for all evenly sampled OTU tables (``beta_diversity.py`` - will require identifying the appropriate tree for all)
+ 4. Compute significantly different OTUs across categories for all evenly sampled OTU tables (``group_significance.py``)
+ 5. Then generate the following tables:
+  * table of run times for all runs above (by study) [TABLE](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0)
+  * table of compare_alpha_diversity.py results for all pairwise comparisons of the above runs (by study)
+  * table of compare_distance_matrices.py results (i.e., Mantel test) for all pairwise comparisons of the above runs (by study)
+  * table of top ten significant OTUs from group_significance.py for all pairwise comparisons of the above runs (by study)
+
+In parallel, Daniel and Sean are working on the plot of new OTUs by ENV_BIOME for the EMP run.
+
+OTU tables of interest and corresponding trees:
+
+```
+("moving-pictures-otus/uc/otu_table.biom", "moving-pictures-otus/uc/rep_set.tre")
+("moving-pictures-otus/ucr/otu_table.biom", "moving-pictures-otus/ucr/rep_set.tre")
+("moving-pictures-otus/ucrC/otu_table.biom", "$REF_TREE")
+("moving-pictures-otus/ucrss/otu_table_mc1.biom", "")
+("moving-pictures-otus/ucrss_wfilter/otu_table_mc1.biom", "")
+
+("moving-pictures-otus/uc_fast/otu_table.biom", "moving-pictures-otus/uc_fast/rep_set.tre")
+("moving-pictures-otus/ucr_fast/otu_table.biom", "moving-pictures-otus/ucr_fast/rep_set.tre")
+("moving-pictures-otus/ucrC_fast/otu_table.biom", "$REF_TREE")
+("moving-pictures-otus/ucrss_fast/otu_table_mc1.biom", "")
+("moving-pictures-otus/ucrss_fast_wfilter/otu_table_mc1.biom", "")
+
+("whole-body-otus/uc/otu_table.biom", "whole-body-otus/uc/rep_set.tre")
+("whole-body-otus/ucr/otu_table.biom", "whole-body-otus/ucr/rep_set.tre")
+("whole-body-otus/ucrC/otu_table.biom", "$REF_TREE")
+("whole-body-otus/ucrss/otu_table_mc1.biom", "whole-body-otus/ucrss/rep_set.tre")
+("whole-body-otus/ucrss_wfilter/otu_table_mc1.biom", "")
+
+("whole-body-otus/uc_fast/otu_table.biom", "whole-body-otus/uc_fast/rep_set.tre")
+("whole-body-otus/ucr_fast/otu_table.biom", "whole-body-otus/ucr_fast/rep_set.tre")
+("whole-body-otus/ucrC_fast/otu_table.biom", "$REF_TREE")
+("whole-body-otus/ucrss_fast/otu_table_mc1.biom", "whole-body-otus/ucrss_fast/rep_set.tre")
+("whole-body-otus/ucrss_fast_wfilter/otu_table_mc1.biom", "")
+
+("88-soils-otus/uc/otu_table.biom", "88-soils-otus/uc/rep_set.tre")
+("88-soils-otus/ucr/otu_table.biom", "88-soils-otus/ucr/rep_set.tre")
+("88-soils-otus/ucrC/otu_table.biom", "$REF_TREE")
+("88-soils-otus/ucrss/otu_table_mc1.biom", "88-soils-otus/ucrss/rep_set.tre")
+("88-soils-otus/ucrss_wfilter/otu_table_mc1.biom", "")
+
+("88-soils-otus/uc_fast/otu_table.biom", "88-soils-otus/uc_fast/rep_set.tre")
+("88-soils-otus/ucr_fast/otu_table.biom", "88-soils-otus/ucr_fast/rep_set.tre")
+("88-soils-otus/ucrC_fast/otu_table.biom", "$REF_TREE")
+("88-soils-otus/ucrss_fast/otu_table_mc1.biom", "88-soils-otus/ucrss_fast/rep_set.tre")
+("88-soils-otus/ucrss_fast_wfilter/otu_table_mc1.biom", "")
+
+```
 
 
 
