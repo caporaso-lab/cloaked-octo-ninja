@@ -109,7 +109,7 @@ See *OTU tables of interest...* list below for paths to the 30 OTU tables that n
   * table of compare_alpha_diversity.py results for all pairwise comparisons of the above runs (by study)
   * table of compare_distance_matrices.py results (i.e., Mantel test) for all pairwise comparisons of the above runs (by study)
   * table of top ten significant OTUs from group_significance.py for all pairwise comparisons of the above runs (by study)
- 6. Table and plot of new OTUs by ENV_BIOME for the EMP run. [TABLE](https://docs.google.com/spreadsheet/pub?key=0AhnFIU32uKRYdFd2T3hWdXA0bjc0RTUxR09aUkRuZUE&single=true&gid=0&output=html)
+ 6. Table and plot of new OTUs by ENV_BIOME for the EMP run. [TABLE](https://docs.google.com/spreadsheet/ccc?key=0AhnFIU32uKRYdFd2T3hWdXA0bjc0RTUxR09aUkRuZUE&usp=sharing#gid=0)
 
 ```
 # Define paths to OTU tables of interest, corresponding trees, and the commands to generate them.
