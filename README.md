@@ -101,15 +101,16 @@ See *OTU tables of interest...* list below for paths to the 30 OTU tables that n
 
  1. ~~Missing some trees, regenerate~~
  2. ~~Determine even sampling depths for all OTU tables and generate evenly sampled OTU tables (``biom summarize_table; single_rarefaction.py``).~~
- 3. ~~Compute observed species and PD for all evenly sampled OTU tables (``alpha diversity.py -m observed_species,PD_whole_tree``).~~ in progress
+ 3. ~~Compute observed species and PD for all evenly sampled OTU tables (``alpha diversity.py -m observed_species,PD_whole_tree``).~~
  4. ~~Generate weighted and unweighted UniFrac distance matrices for all evenly sampled OTU tables (``beta_diversity.py`` - will require identifying the appropriate tree for all)~~ in progress
- 5. Determine relevant category for each data set, grouping existing data as necessary (e.g., bin the pH, L_palm/R_palm, skin sites) and compute significantly different OTUs across categories for all evenly sampled OTU tables (``group_significance.py``)
- 6. Then generate the following tables:
+ 5. ~~Determine relevant category for each data set, grouping existing data as necessary (e.g., bin the pH, L_palm/R_palm, skin sites) and compute significantly different OTUs across categories for all evenly sampled OTU tables (``group_significance.py``)~~ in progress
+ 6. Confirm existence of all necessary data.
+ 7. Then generate the following tables:
   * table of run times for all runs above (by study) - **needs to be re-generated as some information is outdated due to failed OTU picking runs** [TABLE](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0)
   * table of compare_alpha_diversity.py results for all pairwise comparisons of the above runs (by study)
   * table of compare_distance_matrices.py results (i.e., Mantel test) for all pairwise comparisons of the above runs (by study)
   * table of top ten significant OTUs from group_significance.py for all pairwise comparisons of the above runs (by study)
- 7. Table and plot of new OTUs by ENV_BIOME for the EMP run. [TABLE](https://docs.google.com/spreadsheet/ccc?key=0AhnFIU32uKRYdFd2T3hWdXA0bjc0RTUxR09aUkRuZUE&usp=sharing#gid=0)
+ 8. Table and plot of new OTUs by ENV_BIOME for the EMP run. [TABLE](https://docs.google.com/spreadsheet/ccc?key=0AhnFIU32uKRYdFd2T3hWdXA0bjc0RTUxR09aUkRuZUE&usp=sharing#gid=0)
 
 ```
 l = [("moving-pictures-otus/uc/otu_table.biom", "moving-pictures-otus/uc/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10", 5000),
