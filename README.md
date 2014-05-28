@@ -99,54 +99,54 @@ Next steps
 
 See *OTU tables of interest...* list below for paths to the 30 OTU tables that need to be analyzed here.
 
- 0. ~~Missing some trees~~ regenerating, in progress
- 1. Determine even sampling depths for all OTU tables and generate evenly sampled OTU tables (``biom summarize_table; single_rarefaction.py``).
- 2. Compute observed species and PD for all evenly sampled OTU tables (``alpha diversity.py -m observed_species,PD_whole_tree``).
- 3. Generate weighted and unweighted UniFrac distance matrices for all evenly sampled OTU tables (``beta_diversity.py`` - will require identifying the appropriate tree for all)
- 4. Compute significantly different OTUs across categories for all evenly sampled OTU tables (``group_significance.py``)
- 5. Then generate the following tables:
+ 1. ~~Missing some trees, regenerate~~
+ 2. ~~Determine even sampling depths for all OTU tables and generate evenly sampled OTU tables (``biom summarize_table; single_rarefaction.py``).~~
+ 3. ~~Compute observed species and PD for all evenly sampled OTU tables (``alpha diversity.py -m observed_species,PD_whole_tree``).~~ in progress
+ 4. ~~Generate weighted and unweighted UniFrac distance matrices for all evenly sampled OTU tables (``beta_diversity.py`` - will require identifying the appropriate tree for all)~~ in progress
+ 5. Determine relevant category for each data set, grouping existing data as necessary (e.g., bin the pH, L_palm/R_palm, skin sites) and compute significantly different OTUs across categories for all evenly sampled OTU tables (``group_significance.py``)
+ 6. Then generate the following tables:
   * table of run times for all runs above (by study) - **needs to be re-generated after Step 0 completes** [TABLE](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0)
   * table of compare_alpha_diversity.py results for all pairwise comparisons of the above runs (by study)
   * table of compare_distance_matrices.py results (i.e., Mantel test) for all pairwise comparisons of the above runs (by study)
   * table of top ten significant OTUs from group_significance.py for all pairwise comparisons of the above runs (by study)
- 6. Table and plot of new OTUs by ENV_BIOME for the EMP run. [TABLE](https://docs.google.com/spreadsheet/ccc?key=0AhnFIU32uKRYdFd2T3hWdXA0bjc0RTUxR09aUkRuZUE&usp=sharing#gid=0)
+ 7. Table and plot of new OTUs by ENV_BIOME for the EMP run. [TABLE](https://docs.google.com/spreadsheet/ccc?key=0AhnFIU32uKRYdFd2T3hWdXA0bjc0RTUxR09aUkRuZUE&usp=sharing#gid=0)
 
 ```
-l = [("moving-pictures-otus/uc/otu_table.biom", "moving-pictures-otus/uc/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10"),
-("moving-pictures-otus/ucr/otu_table.biom", "moving-pictures-otus/ucr/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10"),
-("moving-pictures-otus/ucrC/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10"),
-("moving-pictures-otus/ucrss/otu_table_mc1.biom", "moving-pictures-otus/ucrss/rep_set.tre", "pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0"),
-("moving-pictures-otus/ucrss_wfilter/otu_table_mc1.biom", "moving-pictures-otus/ucrss_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_wfilter -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1"),
+l = [("moving-pictures-otus/uc/otu_table.biom", "moving-pictures-otus/uc/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10", 5000),
+("moving-pictures-otus/ucr/otu_table.biom", "moving-pictures-otus/ucr/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10", 5000),
+("moving-pictures-otus/ucrC/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10", 5000),
+("moving-pictures-otus/ucrss/otu_table_mc1_w_tax.biom", "moving-pictures-otus/ucrss/rep_set.tre", "pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0", 5000),
+("moving-pictures-otus/ucrss_wfilter/otu_table_mc1_w_tax.biom", "moving-pictures-otus/ucrss_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_wfilter -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 5000),
 
-("moving-pictures-otus/uc_fast/otu_table.biom", "moving-pictures-otus/uc_fast/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/uc_fast -p $PROJECT_DIR/parameters/uc_fast.txt -aO 10"),
-("moving-pictures-otus/ucr_fast/otu_table.biom", "moving-pictures-otus/ucr_fast/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr_fast -p $PROJECT_DIR/parameters/ucr_fast.txt -aO 10"),
-("moving-pictures-otus/ucrC_fast/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrC_fast -p $PROJECT_DIR/parameters/ucrC_fast.txt -r $REF_SEQS -aO 10"),
-("moving-pictures-otus/ucrss_fast/otu_table_mc1.biom", "moving-pictures-otus/ucrss_fast/rep_set.tre", "pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_fast -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0"),
-("moving-pictures-otus/ucrss_fast_wfilter/otu_table_mc1.biom", "moving-pictures-otus/ucrss_fast_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1"),
+("moving-pictures-otus/uc_fast/otu_table.biom", "moving-pictures-otus/uc_fast/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/uc_fast -p $PROJECT_DIR/parameters/uc_fast.txt -aO 10", 5000),
+("moving-pictures-otus/ucr_fast/otu_table.biom", "moving-pictures-otus/ucr_fast/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr_fast -p $PROJECT_DIR/parameters/ucr_fast.txt -aO 10", 5000),
+("moving-pictures-otus/ucrC_fast/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrC_fast -p $PROJECT_DIR/parameters/ucrC_fast.txt -r $REF_SEQS -aO 10", 5000),
+("moving-pictures-otus/ucrss_fast/otu_table_mc1_w_tax.biom", "moving-pictures-otus/ucrss_fast/rep_set.tre", "pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_fast -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0", 5000),
+("moving-pictures-otus/ucrss_fast_wfilter/otu_table_mc1_w_tax.biom", "moving-pictures-otus/ucrss_fast_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 5000),
 
-("whole-body-otus/uc/otu_table.biom", "whole-body-otus/uc/rep_set.tre", "pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10"),
-("whole-body-otus/ucr/otu_table.biom", "whole-body-otus/ucr/rep_set.tre", "pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10"),
-("whole-body-otus/ucrC/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10"),
-("whole-body-otus/ucrss/otu_table_mc1.biom", "whole-body-otus/ucrss/rep_set.tre", "pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10  --min_otu_size 1 --prefilter_percent_id 0.0"),
-("whole-body-otus/ucrss_wfilter/otu_table_mc1.biom", "whole-body-otus/ucrss_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss_wfilter -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1"),
+("whole-body-otus/uc/otu_table.biom", "whole-body-otus/uc/rep_set.tre", "pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10", 700),
+("whole-body-otus/ucr/otu_table.biom", "whole-body-otus/ucr/rep_set.tre", "pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10", 700),
+("whole-body-otus/ucrC/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10", 700),
+("whole-body-otus/ucrss/otu_table_mc1_w_tax.biom", "whole-body-otus/ucrss/rep_set.tre", "pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10  --min_otu_size 1 --prefilter_percent_id 0.0", 700),
+("whole-body-otus/ucrss_wfilter/otu_table_mc1_w_tax.biom", "whole-body-otus/ucrss_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss_wfilter -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 700),
 
-("whole-body-otus/uc_fast/otu_table.biom", "whole-body-otus/uc_fast/rep_set.tre", "pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/uc_fast -p $PROJECT_DIR/parameters/uc_fast.txt -aO 10"),
-("whole-body-otus/ucr_fast/otu_table.biom", "whole-body-otus/ucr_fast/rep_set.tre", "pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucr_fast -p $PROJECT_DIR/parameters/ucr_fast.txt -aO 10"),
-("whole-body-otus/ucrC_fast/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrC_fast -p $PROJECT_DIR/parameters/ucrC_fast.txt -r $REF_SEQS -aO 10"),
-("whole-body-otus/ucrss_fast/otu_table_mc1.biom", "whole-body-otus/ucrss_fast/rep_set.tre", "pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss_fast -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10  --min_otu_size 1 --prefilter_percent_id 0.0"),
-("whole-body-otus/ucrss_fast_wfilter/otu_table_mc1.biom", "whole-body-otus/ucrss_fast_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1"),
+("whole-body-otus/uc_fast/otu_table.biom", "whole-body-otus/uc_fast/rep_set.tre", "pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/uc_fast -p $PROJECT_DIR/parameters/uc_fast.txt -aO 10", 700),
+("whole-body-otus/ucr_fast/otu_table.biom", "whole-body-otus/ucr_fast/rep_set.tre", "pick_de_novo_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucr_fast -p $PROJECT_DIR/parameters/ucr_fast.txt -aO 10", 700),
+("whole-body-otus/ucrC_fast/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrC_fast -p $PROJECT_DIR/parameters/ucrC_fast.txt -r $REF_SEQS -aO 10", 700),
+("whole-body-otus/ucrss_fast/otu_table_mc1_w_tax.biom", "whole-body-otus/ucrss_fast/rep_set.tre", "pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss_fast -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10  --min_otu_size 1 --prefilter_percent_id 0.0", 700),
+("whole-body-otus/ucrss_fast_wfilter/otu_table_mc1_w_tax.biom", "whole-body-otus/ucrss_fast_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $WHOLE_BODY_SEQS -o $PROJECT_DIR/whole-body-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 700),
 
-("88-soils-otus/uc/otu_table.biom", "88-soils-otus/uc/rep_set.tre", "pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10"),
-("88-soils-otus/ucr/otu_table.biom", "88-soils-otus/ucr/rep_set.tre", "pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10"),
-("88-soils-otus/ucrC/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10"),
-("88-soils-otus/ucrss/otu_table_mc1.biom", "88-soils-otus/ucrss/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0"),
-("88-soils-otus/ucrss_wfilter/otu_table_mc1.biom", "88-soils-otus/ucrss_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_wfilter -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1"),
+("88-soils-otus/uc/otu_table.biom", "88-soils-otus/uc/rep_set.tre", "pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10", 400),
+("88-soils-otus/ucr/otu_table.biom", "88-soils-otus/ucr/rep_set.tre", "pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10", 400),
+("88-soils-otus/ucrC/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10", 400),
+("88-soils-otus/ucrss/otu_table_mc1_w_tax.biom", "88-soils-otus/ucrss/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0", 400),
+("88-soils-otus/ucrss_wfilter/otu_table_mc1_w_tax.biom", "88-soils-otus/ucrss_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_wfilter -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 400),
 
-("88-soils-otus/uc_fast/otu_table.biom", "88-soils-otus/uc_fast/rep_set.tre", "pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/uc_fast -p $PROJECT_DIR/parameters/uc_fast.txt -aO 10"),
-("88-soils-otus/ucr_fast/otu_table.biom", "88-soils-otus/ucr_fast/rep_set.tre", "pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucr_fast -p $PROJECT_DIR/parameters/ucr_fast.txt -aO 10"),
-("88-soils-otus/ucrC_fast/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrC_fast -p $PROJECT_DIR/parameters/ucrC_fast.txt -r $REF_SEQS -aO 10"),
-("88-soils-otus/ucrss_fast/otu_table_mc1.biom", "88-soils-otus/ucrss_fast/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_fast -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0"),
-("88-soils-otus/ucrss_fast_wfilter/otu_table_mc1.biom", "88-soils-otus/ucrss_fast_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1")]
+("88-soils-otus/uc_fast/otu_table.biom", "88-soils-otus/uc_fast/rep_set.tre", "pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/uc_fast -p $PROJECT_DIR/parameters/uc_fast.txt -aO 10", 400),
+("88-soils-otus/ucr_fast/otu_table.biom", "88-soils-otus/ucr_fast/rep_set.tre", "pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucr_fast -p $PROJECT_DIR/parameters/ucr_fast.txt -aO 10", 400),
+("88-soils-otus/ucrC_fast/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrC_fast -p $PROJECT_DIR/parameters/ucrC_fast.txt -r $REF_SEQS -aO 10", 400),
+("88-soils-otus/ucrss_fast/otu_table_mc1_w_tax.biom", "88-soils-otus/ucrss_fast/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_fast -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0", 400),
+("88-soils-otus/ucrss_fast_wfilter/otu_table_mc1_w_tax.biom", "88-soils-otus/ucrss_fast_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 400)]
 
 # generate BIOM table summaries
 for e in l:
@@ -154,6 +154,28 @@ for e in l:
     summ_fp = biom_fp.replace('.biom', '_summ.txt')
     cmd = "biom summarize-table -i %s -o %s" % (biom_fp, summ_fp)
     !$cmd
+
+# generate rarified otu tables
+for e in l:
+    in_fp = e[0]
+    d = e[3]
+    out_fp = e[0].replace('.biom', '_even%d.biom' % d)
+    cmd = 'echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; single_rarefaction.py -i %s -o %s -d %d" | qsub -keo -N sr' % (in_fp, out_fp, d)
+    !$cmd
+
+# run alpha diversity and beta diversity
+for e in l:
+    full_otu_table_fp = e[0]
+    tree_fp = e[1]
+    d = e[3]
+    in_fp = full_otu_table_fp.replace('.biom', '_even%d.biom' % d)
+    input_dir = split(full_otu_table_fp)[0]
+    alpha_out_fp = join(input_dir,'adiv_even%d.txt' % d)
+    beta_out_dir = join(input_dir,'bdiv_even%d' % d)
+    alpha_cmd = 'echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; alpha_diversity.py -i %s -o %s -m observed_species,PD_whole_tree -t %s" | qsub -keo -N adiv' % (in_fp, alpha_out_fp, tree_fp)
+    beta_cmd = 'echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; beta_diversity.py -i %s -o %s -t %s" | qsub -keo -N bdiv' % (in_fp, beta_out_dir, tree_fp)
+    !$alpha_cmd
+    !$beta_cmd
 
 ```
 
