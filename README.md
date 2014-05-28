@@ -177,6 +177,42 @@ for e in l:
     !$alpha_cmd
     !$beta_cmd
 
+# run group significance (moving pictures)
+for e in l[:10]:
+    full_otu_table_fp = e[0]
+    d = e[3]
+    in_fp = full_otu_table_fp.replace('.biom', '_even%d.biom' % d)
+    input_dir = split(full_otu_table_fp)[0]
+    out_fp = join(input_dir,'group_significance_even%d.txt' % d)
+    group_sig_cmd = "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; group_significance.py -i %s -m %s -o %s -c %s" % (in_fp, "$MOVING_PICTURES_MAP", out_fp, "BODY_SITE")
+    cmd = 'echo "%s" | qsub -keo -N gs' % group_sig_cmd
+    !$cmd
+
+# run group significance (whole body)
+for e in l[10:20]:
+    full_otu_table_fp = e[0]
+    d = e[3]
+    in_fp = full_otu_table_fp.replace('.biom', '_even%d.biom' % d)
+    input_dir = split(full_otu_table_fp)[0]
+    out_fp = join(input_dir,'group_significance_even%d.txt' % d)
+    group_sig_cmd = "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; group_significance.py -i %s -m %s -o %s -c %s" % (in_fp, "$WHOLE_BODY_MAP", out_fp, 'body_habitat_basic')
+    cmd = 'echo "%s" | qsub -keo -N gs' % group_sig_cmd
+    !$cmd
+
+# run group significance (88-soils)
+for e in l[20:]:
+    full_otu_table_fp = e[0]
+    d = e[3]
+    in_fp = full_otu_table_fp.replace('.biom', '_even%d.biom' % d)
+    input_dir = split(full_otu_table_fp)[0]
+    out_fp = join(input_dir,'group_significance_even%d.txt' % d)
+    group_sig_cmd = "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; group_significance.py -i %s -m %s -o %s -c %s" % (in_fp, "$SOILS_MAP", out_fp, "ph_bin")
+    cmd = 'echo "%s" | qsub -keo -N gs' % group_sig_cmd
+    !$cmd
+
+
+    group_significance.py -i 88-soils-otus/uc/otu_table_even400.biom -m $SOILS_MAP -c ph_bin -o 88-soils-otus/uc/group_significance_even400.txt
+
 ```
 
 
