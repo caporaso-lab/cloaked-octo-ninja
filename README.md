@@ -107,9 +107,9 @@ See *OTU tables of interest...* list below for paths to the 30 OTU tables that n
  6. ~~Confirm existence of all necessary data.~~
  7. Then generate the following tables:
   * table of run times for all runs above (by study) - **needs to be re-generated as some information is outdated due to failed OTU picking runs** [TABLE](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0)
-  * table of compare_alpha_diversity.py results for all pairwise comparisons of the above runs (by study)
-  * table of compare_distance_matrices.py results (i.e., Mantel test) for all pairwise comparisons of the above runs (by study)
-  * table of top ten significant OTUs from group_significance.py for all pairwise comparisons of the above runs (by study)
+  * ~~table of alpha diversity correlations for all pairwise comparisons of the above runs (by study)~~
+  * table of compare_distance_matrices.py results (i.e., Mantel test) for all pairwise comparisons of the above runs (by study), mantel in progress
+  * ~~table of top ten significant OTUs from group_significance.py for all pairwise comparisons of the above runs (by study)~~
  8. Table and plot of new OTUs by ENV_BIOME for the EMP run. [TABLE](https://docs.google.com/spreadsheet/ccc?key=0AhnFIU32uKRYdFd2T3hWdXA0bjc0RTUxR09aUkRuZUE&usp=sharing#gid=0)
 
 ```
@@ -237,90 +237,7 @@ for metric in ['unweighted_unifrac', 'weighted_unifrac']:
         cmd = 'echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; %s" | qsub -keo -N cmp_dist' % cmp_cmd
         !$cmd
 
-
-
 ```
-
-
-
-
-Get runtimes
-------------
-
-Runtimes are summarized in [this spreadsheet](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0).
-
-```
-$ grep "^Logging" moving-pictures-otus/*/log*txt
-moving-pictures-otus/uc_fast/log_20140418065704.txt:Logging started at 06:57:04 on 18 Apr 2014
-moving-pictures-otus/uc_fast/log_20140418065704.txt:Logging stopped at 13:28:54 on 18 Apr 2014
-moving-pictures-otus/uc/log_20140416180632.txt:Logging started at 18:06:32 on 16 Apr 2014
-moving-pictures-otus/uc/log_20140416180632.txt:Logging stopped at 01:49:00 on 17 Apr 2014
-moving-pictures-otus/ucrC_fast/log_20140418075451.txt:Logging started at 07:54:51 on 18 Apr 2014
-moving-pictures-otus/ucrC_fast/log_20140418075451.txt:Logging stopped at 08:36:25 on 18 Apr 2014
-moving-pictures-otus/ucrC/log_20140417132227.txt:Logging started at 13:22:27 on 17 Apr 2014
-moving-pictures-otus/ucrC/log_20140417132227.txt:Logging stopped at 22:24:09 on 17 Apr 2014
-moving-pictures-otus/ucr_fast/log_20140418075501.txt:Logging started at 07:55:01 on 18 Apr 2014
-moving-pictures-otus/ucr_fast/log_20140418075501.txt:Logging stopped at 13:17:52 on 18 Apr 2014
-moving-pictures-otus/ucr/log_20140417060006.txt:Logging started at 06:00:06 on 17 Apr 2014
-moving-pictures-otus/ucr/log_20140417060006.txt:Logging stopped at 18:56:22 on 17 Apr 2014
-moving-pictures-otus/ucrss_fast/log_20140418084007.txt:Logging started at 08:40:07 on 18 Apr 2014
-moving-pictures-otus/ucrss_fast/log_20140418084007.txt:Logging stopped at 10:00:02 on 18 Apr 2014
-moving-pictures-otus/ucrss_fast_wfilter/log_20140418114447.txt:Logging started at 11:44:47 on 18 Apr 2014
-moving-pictures-otus/ucrss_fast_wfilter/log_20140418114447.txt:Logging stopped at 20:56:10 on 18 Apr 2014
-moving-pictures-otus/ucrss/log_20140417132257.txt:Logging started at 13:22:57 on 17 Apr 2014
-moving-pictures-otus/ucrss/log_20140417132257.txt:Logging stopped at 23:34:49 on 17 Apr 2014
-moving-pictures-otus/ucrss_wfilter/log_20140418115916.txt:Logging started at 11:59:16 on 18 Apr 2014
-moving-pictures-otus/ucrss_wfilter/log_20140418115916.txt:Logging stopped at 05:05:44 on 19 Apr 2014
-```
-
-```
-$ grep "^Logging" 88-soils-otus/*/log*txt
-88-soils-otus/uc_fast/log_20140418065332.txt:Logging started at 06:53:32 on 18 Apr 2014
-88-soils-otus/uc_fast/log_20140418065332.txt:Logging stopped at 07:08:46 on 18 Apr 2014
-88-soils-otus/uc/log_20140416151050.txt:Logging started at 15:10:50 on 16 Apr 2014
-88-soils-otus/uc/log_20140416151050.txt:Logging stopped at 15:31:10 on 16 Apr 2014
-88-soils-otus/ucrC_fast/log_20140418072618.txt:Logging started at 07:26:18 on 18 Apr 2014
-88-soils-otus/ucrC_fast/log_20140418072618.txt:Logging stopped at 07:27:03 on 18 Apr 2014
-88-soils-otus/ucrC/log_20140416155149.txt:Logging started at 15:51:49 on 16 Apr 2014
-88-soils-otus/ucrC/log_20140416155149.txt:Logging stopped at 15:55:54 on 16 Apr 2014
-88-soils-otus/ucr_fast/log_20140418070846.txt:Logging started at 07:08:46 on 18 Apr 2014
-88-soils-otus/ucr_fast/log_20140418070846.txt:Logging stopped at 07:26:18 on 18 Apr 2014
-88-soils-otus/ucr/log_20140417055711.txt:Logging started at 05:57:11 on 17 Apr 2014
-88-soils-otus/ucr/log_20140417055711.txt:Logging stopped at 06:19:49 on 17 Apr 2014
-88-soils-otus/ucrss_fast/log_20140418072703.txt:Logging started at 07:27:03 on 18 Apr 2014
-88-soils-otus/ucrss_fast/log_20140418072703.txt:Logging stopped at 07:44:04 on 18 Apr 2014
-88-soils-otus/ucrss_fast_wfilter/log_20140418114421.txt:Logging started at 11:44:21 on 18 Apr 2014
-88-soils-otus/ucrss_fast_wfilter/log_20140418114421.txt:Logging stopped at 11:54:13 on 18 Apr 2014
-88-soils-otus/ucrss/log_20140416155554.txt:Logging started at 15:55:54 on 16 Apr 2014
-88-soils-otus/ucrss/log_20140416155554.txt:Logging stopped at 16:20:47 on 16 Apr 2014
-88-soils-otus/ucrss_wfilter/log_20140418161924.txt:Logging started at 16:19:24 on 18 Apr 2014
-88-soils-otus/ucrss_wfilter/log_20140418161924.txt:Logging stopped at 16:35:51 on 18 Apr 2014
-```
-
-```
-$ grep "^Logging" whole-body-otus/*/log*txt
-whole-body-otus/uc_fast/log_20140418065050.txt:Logging started at 06:50:50 on 18 Apr 2014
-whole-body-otus/uc_fast/log_20140418065050.txt:Logging stopped at 06:58:59 on 18 Apr 2014
-whole-body-otus/uc/log_20140416151033.txt:Logging started at 15:10:33 on 16 Apr 2014
-whole-body-otus/uc/log_20140416151033.txt:Logging stopped at 15:28:48 on 16 Apr 2014
-whole-body-otus/ucrC_fast/log_20140418070920.txt:Logging started at 07:09:20 on 18 Apr 2014
-whole-body-otus/ucrC_fast/log_20140418070920.txt:Logging stopped at 07:10:33 on 18 Apr 2014
-whole-body-otus/ucrC/log_20140416154734.txt:Logging started at 15:47:34 on 16 Apr 2014
-whole-body-otus/ucrC/log_20140416154734.txt:Logging stopped at 15:54:16 on 16 Apr 2014
-whole-body-otus/ucr_fast/log_20140418065859.txt:Logging started at 06:58:59 on 18 Apr 2014
-whole-body-otus/ucr_fast/log_20140418065859.txt:Logging stopped at 07:09:20 on 18 Apr 2014
-whole-body-otus/ucr/log_20140417055939.txt:Logging started at 05:59:39 on 17 Apr 2014
-whole-body-otus/ucr/log_20140417055939.txt:Logging stopped at 06:17:41 on 17 Apr 2014
-whole-body-otus/ucrss_fast/log_20140418071034.txt:Logging started at 07:10:34 on 18 Apr 2014
-whole-body-otus/ucrss_fast/log_20140418071034.txt:Logging stopped at 07:22:21 on 18 Apr 2014
-whole-body-otus/ucrss_fast_wfilter/log_20140418114407.txt:Logging started at 11:44:07 on 18 Apr 2014
-whole-body-otus/ucrss_fast_wfilter/log_20140418114407.txt:Logging stopped at 11:59:50 on 18 Apr 2014
-whole-body-otus/ucrss/log_20140416155416.txt:Logging started at 15:54:16 on 16 Apr 2014
-whole-body-otus/ucrss/log_20140416155416.txt:Logging stopped at 16:14:28 on 16 Apr 2014
-whole-body-otus/ucrss_wfilter/log_20140418120330.txt:Logging started at 12:03:30 on 18 Apr 2014
-whole-body-otus/ucrss_wfilter/log_20140418120330.txt:Logging stopped at 12:38:13 on 18 Apr 2014
-```
-
 
 
 QIIME config information
