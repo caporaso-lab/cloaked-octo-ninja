@@ -104,7 +104,7 @@ See *OTU tables of interest...* list below for paths to the 30 OTU tables that n
  3. ~~Compute observed species and PD for all evenly sampled OTU tables (``alpha diversity.py -m observed_species,PD_whole_tree``).~~
  4. ~~Generate weighted and unweighted UniFrac distance matrices for all evenly sampled OTU tables (``beta_diversity.py`` - will require identifying the appropriate tree for all)~~ in progress
  5. ~~Determine relevant category for each data set, grouping existing data as necessary (e.g., bin the pH, L_palm/R_palm, skin sites) and compute significantly different OTUs across categories for all evenly sampled OTU tables (``group_significance.py``)~~
- 6. Confirm existence of all necessary data. (group sig results are good but ucrC[_fast] are missing taxa; bdiv and adiv missing ucrC[_fast]) - re-running all ucrC results now, problem was with those OTU picking commands. then need to regen even OTU tables, group sig, adiv and bdiv for these)
+ 6. Confirm existence of all necessary data. (~~group sig results are good but ucrC[_fast] are missing taxa~~; bdiv and ~~adiv~~ missing ucrC[_fast]) - bdiv in progress
  7. Then generate the following tables:
   * table of run times for all runs above (by study) - **needs to be re-generated as some information is outdated due to failed OTU picking runs** [TABLE](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0)
   * table of compare_alpha_diversity.py results for all pairwise comparisons of the above runs (by study)
@@ -173,8 +173,8 @@ for e in l:
     input_dir = split(full_otu_table_fp)[0]
     alpha_out_fp = join(input_dir,'adiv_even%d.txt' % d)
     beta_out_dir = join(input_dir,'bdiv_even%d' % d)
-    alpha_cmd = 'echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; alpha_diversity.py -i %s -o %s -m observed_species,PD_whole_tree -t %s" | qsub -keo -N adiv' % (in_fp, alpha_out_fp, tree_fp)
-    beta_cmd = 'echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; beta_diversity.py -i %s -o %s -t %s" | qsub -keo -N bdiv' % (in_fp, beta_out_dir, tree_fp)
+    alpha_cmd = 'cd /home/caporaso/analysis/2014.04.16-ss-otus; source config-env.sh ; echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; alpha_diversity.py -i %s -o %s -m observed_species,PD_whole_tree -t %s" | qsub -keo -N adiv' % (in_fp, alpha_out_fp, tree_fp)
+    beta_cmd = 'cd /home/caporaso/analysis/2014.04.16-ss-otus; source config-env.sh ; echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; beta_diversity.py -i %s -o %s -t %s" | qsub -keo -N bdiv' % (in_fp, beta_out_dir, tree_fp)
     !$alpha_cmd
     !$beta_cmd
 
@@ -186,7 +186,7 @@ for e in l[:10]:
     input_dir = split(full_otu_table_fp)[0]
     out_fp = join(input_dir,'group_significance_even%d.txt' % d)
     group_sig_cmd = "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; group_significance.py -i %s -m %s -o %s -c %s" % (in_fp, "$MOVING_PICTURES_MAP", out_fp, "BODY_SITE")
-    cmd = 'echo "%s" | qsub -keo -N gs' % group_sig_cmd
+    cmd = 'cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; echo "%s" | qsub -keo -N gs' % group_sig_cmd
     !$cmd
 
 # run group significance (whole body)
@@ -197,7 +197,7 @@ for e in l[10:20]:
     input_dir = split(full_otu_table_fp)[0]
     out_fp = join(input_dir,'group_significance_even%d.txt' % d)
     group_sig_cmd = "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; group_significance.py -i %s -m %s -o %s -c %s" % (in_fp, "$WHOLE_BODY_MAP", out_fp, 'body_habitat_basic')
-    cmd = 'echo "%s" | qsub -keo -N gs' % group_sig_cmd
+    cmd = 'cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; echo "%s" | qsub -keo -N gs' % group_sig_cmd
     !$cmd
 
 # run group significance (88-soils)
@@ -208,7 +208,7 @@ for e in l[20:]:
     input_dir = split(full_otu_table_fp)[0]
     out_fp = join(input_dir,'group_significance_even%d.txt' % d)
     group_sig_cmd = "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; group_significance.py -i %s -m %s -o %s -c %s" % (in_fp, "$SOILS_MAP", out_fp, "ph_bin")
-    cmd = 'echo "%s" | qsub -keo -N gs' % group_sig_cmd
+    cmd = 'cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; echo "%s" | qsub -keo -N gs' % group_sig_cmd
     !$cmd
 
 
