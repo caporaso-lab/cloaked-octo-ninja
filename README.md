@@ -104,7 +104,7 @@ See *OTU tables of interest...* list below for paths to the 30 OTU tables that n
  3. ~~Compute observed species and PD for all evenly sampled OTU tables (``alpha diversity.py -m observed_species,PD_whole_tree``).~~
  4. ~~Generate weighted and unweighted UniFrac distance matrices for all evenly sampled OTU tables (``beta_diversity.py`` - will require identifying the appropriate tree for all)~~ in progress
  5. ~~Determine relevant category for each data set, grouping existing data as necessary (e.g., bin the pH, L_palm/R_palm, skin sites) and compute significantly different OTUs across categories for all evenly sampled OTU tables (``group_significance.py``)~~
- 6. Confirm existence of all necessary data. (~~group sig results are good but ucrC[_fast] are missing taxa~~; bdiv and ~~adiv~~ missing ucrC[_fast]) - bdiv in progress
+ 6. ~~Confirm existence of all necessary data.~~
  7. Then generate the following tables:
   * table of run times for all runs above (by study) - **needs to be re-generated as some information is outdated due to failed OTU picking runs** [TABLE](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0)
   * table of compare_alpha_diversity.py results for all pairwise comparisons of the above runs (by study)
@@ -212,7 +212,32 @@ for e in l[20:]:
     !$cmd
 
 
-    group_significance.py -i 88-soils-otus/uc/otu_table_even400.biom -m $SOILS_MAP -c ph_bin -o 88-soils-otus/uc/group_significance_even400.txt
+# run mantel tests
+def get_unifrac_dm_fp(e, metric_name):
+    full_otu_table_fp = e[0]
+    d = e[3]
+    in_fp = full_otu_table_fp.replace('.biom', '_even%d.biom' % d)
+    bdiv_dir = join(split(full_otu_table_fp)[0], 'bdiv_even%d' % d)
+    dm_fp = ''.join([metric_name, '_',
+                     splitext(split(in_fp)[1])[0],
+                     '.txt'])
+    return join(bdiv_dir,dm_fp)
+
+datasets = [('moving-pictures-otus', range(10)),
+            ('whole-body-otus', range(10,20)),
+            ('88-soils-otus',range(20,30))]
+for metric in ['unweighted_unifrac', 'weighted_unifrac']:
+    for otu_dir, data_range in datasets:
+        dm_fps = \
+            [get_unifrac_dm_fp(l[i], metric) for i in data_range]
+        mantel_fp = join(
+            otu_dir, '%s_mantel_results.txt' % metric)
+        cmp_cmd = 'compare_distance_matrices.py -i %s -o %s --method mantel -n 999' %\
+            (','.join(dm_fps), mantel_fp)
+        cmd = 'echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; %s" | qsub -keo -N cmp_dist' % cmp_cmd
+        !$cmd
+
+
 
 ```
 
