@@ -212,6 +212,33 @@ for e in l[20:]:
     !$cmd
 
 
+# run mantel tests
+def get_unifrac_dm_fp(e, metric_name):
+    full_otu_table_fp = e[0]
+    d = e[3]
+    in_fp = full_otu_table_fp.replace('.biom', '_even%d.biom' % d)
+    bdiv_dir = join(split(full_otu_table_fp)[0], 'bdiv_even%d' % d)
+    dm_fp = ''.join([metric_name, '_',
+                     splitext(split(in_fp)[1])[0],
+                     '.txt'])
+    return join(bdiv_dir,dm_fp)
+
+datasets = [('moving-pictures-otus', range(10)),
+            ('whole-body-otus', range(10,20)),
+            ('88-soils-otus',range(20,30))]
+for metric in ['unweighted_unifrac', 'weighted_unifrac']:
+    for otu_dir, data_range in datasets:
+        dm_fps = \
+            [get_unifrac_dm_fp(l[i], metric) for i in data_range]
+        mantel_fp = join(
+            otu_dir, '%s_mantel_results.txt' % metric)
+        cmp_cmd = 'compare_distance_matrices.py -i %s -o %s --method mantel -n 999' %\
+            (','.join(dm_fps), mantel_fp)
+        cmd = 'echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; %s" | qsub -keo -N cmp_dist' % cmp_cmd
+        !$cmd
+
+
+
 ```
 
 
