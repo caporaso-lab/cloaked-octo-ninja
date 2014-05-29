@@ -1,0 +1,50 @@
+# Number of entries refers to the number of rows (or cols) retained in each
+# distance matrix after filtering the distance matrices to include only those
+# samples that were in both distance matrices. p-value contains the correct
+# number of significant digits.
+DM1	DM2	Number of entries	Mantel r statistic	p-value	Number of permutations	Tail type
+whole-body-otus/uc/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucr/bdiv_even700/weighted_unifrac_otu_table_even700.txt	565	0.94742	0.001	999	two sided
+whole-body-otus/uc/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrC/bdiv_even700/weighted_unifrac_otu_table_even700.txt	548	0.89564	0.001	999	two sided
+whole-body-otus/uc/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	548	0.93433	0.001	999	two sided
+whole-body-otus/uc/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	548	0.94257	0.001	999	two sided
+whole-body-otus/uc/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/uc_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	548	0.95997	0.001	999	two sided
+whole-body-otus/uc/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucr_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	548	0.93908	0.001	999	two sided
+whole-body-otus/uc/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrC_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	544	0.89794	0.001	999	two sided
+whole-body-otus/uc/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.90381	0.001	999	two sided
+whole-body-otus/uc/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.93587	0.001	999	two sided
+whole-body-otus/ucr/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrC/bdiv_even700/weighted_unifrac_otu_table_even700.txt	548	0.89958	0.001	999	two sided
+whole-body-otus/ucr/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	548	0.92423	0.001	999	two sided
+whole-body-otus/ucr/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	548	0.94983	0.001	999	two sided
+whole-body-otus/ucr/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/uc_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	548	0.95082	0.001	999	two sided
+whole-body-otus/ucr/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucr_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	548	0.92024	0.001	999	two sided
+whole-body-otus/ucr/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrC_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	544	0.90377	0.001	999	two sided
+whole-body-otus/ucr/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.87088	0.001	999	two sided
+whole-body-otus/ucr/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.94386	0.001	999	two sided
+whole-body-otus/ucrC/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	548	0.88576	0.001	999	two sided
+whole-body-otus/ucrC/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	548	0.92416	0.001	999	two sided
+whole-body-otus/ucrC/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/uc_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	548	0.90725	0.001	999	two sided
+whole-body-otus/ucrC/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucr_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	548	0.91116	0.001	999	two sided
+whole-body-otus/ucrC/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrC_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	544	0.99398	0.001	999	two sided
+whole-body-otus/ucrC/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.83136	0.001	999	two sided
+whole-body-otus/ucrC/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.93889	0.001	999	two sided
+whole-body-otus/ucrss/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/ucrss_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	565	0.94404	0.001	999	two sided
+whole-body-otus/ucrss/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/uc_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	565	0.92023	0.001	999	two sided
+whole-body-otus/ucrss/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/ucr_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	565	0.91664	0.001	999	two sided
+whole-body-otus/ucrss/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/ucrC_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	544	0.88246	0.001	999	two sided
+whole-body-otus/ucrss/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/ucrss_fast/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.91841	0.001	999	two sided
+whole-body-otus/ucrss/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/ucrss_fast_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.91070	0.001	999	two sided
+whole-body-otus/ucrss_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/uc_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	565	0.93333	0.001	999	two sided
+whole-body-otus/ucrss_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/ucr_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	565	0.91832	0.001	999	two sided
+whole-body-otus/ucrss_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/ucrC_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	544	0.92575	0.001	999	two sided
+whole-body-otus/ucrss_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/ucrss_fast/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.89680	0.001	999	two sided
+whole-body-otus/ucrss_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/ucrss_fast_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.93162	0.001	999	two sided
+whole-body-otus/uc_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucr_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	565	0.95490	0.001	999	two sided
+whole-body-otus/uc_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrC_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	544	0.90857	0.001	999	two sided
+whole-body-otus/uc_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.88950	0.001	999	two sided
+whole-body-otus/uc_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.96583	0.001	999	two sided
+whole-body-otus/ucr_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrC_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	544	0.91048	0.001	999	two sided
+whole-body-otus/ucr_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.93554	0.001	999	two sided
+whole-body-otus/ucr_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.95136	0.001	999	two sided
+whole-body-otus/ucrC_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.82984	0.001	999	two sided
+whole-body-otus/ucrC_fast/bdiv_even700/weighted_unifrac_otu_table_even700.txt	whole-body-otus/ucrss_fast_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	544	0.94028	0.001	999	two sided
+whole-body-otus/ucrss_fast/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	whole-body-otus/ucrss_fast_wfilter/bdiv_even700/weighted_unifrac_otu_table_mc1_w_tax_even700.txt	565	0.86558	0.001	999	two sided

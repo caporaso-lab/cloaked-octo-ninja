@@ -1,0 +1,50 @@
+# Number of entries refers to the number of rows (or cols) retained in each
+# distance matrix after filtering the distance matrices to include only those
+# samples that were in both distance matrices. p-value contains the correct
+# number of significant digits.
+DM1	DM2	Number of entries	Mantel r statistic	p-value	Number of permutations	Tail type
+88-soils-otus/uc/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucr/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88	0.93487	0.001	999	two sided
+88-soils-otus/uc/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrC/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	87	0.90823	0.001	999	two sided
+88-soils-otus/uc/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	87	0.94364	0.001	999	two sided
+88-soils-otus/uc/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	87	0.94208	0.001	999	two sided
+88-soils-otus/uc/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/uc_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	87	0.93926	0.001	999	two sided
+88-soils-otus/uc/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucr_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	87	0.94472	0.001	999	two sided
+88-soils-otus/uc/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrC_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	86	0.90865	0.001	999	two sided
+88-soils-otus/uc/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.94259	0.001	999	two sided
+88-soils-otus/uc/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.94149	0.001	999	two sided
+88-soils-otus/ucr/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrC/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	87	0.91458	0.001	999	two sided
+88-soils-otus/ucr/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	87	0.93982	0.001	999	two sided
+88-soils-otus/ucr/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	87	0.94465	0.001	999	two sided
+88-soils-otus/ucr/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/uc_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	87	0.93425	0.001	999	two sided
+88-soils-otus/ucr/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucr_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	87	0.94212	0.001	999	two sided
+88-soils-otus/ucr/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrC_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	86	0.91776	0.001	999	two sided
+88-soils-otus/ucr/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.94393	0.001	999	two sided
+88-soils-otus/ucr/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.94881	0.001	999	two sided
+88-soils-otus/ucrC/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	87	0.91656	0.001	999	two sided
+88-soils-otus/ucrC/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	87	0.90959	0.001	999	two sided
+88-soils-otus/ucrC/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/uc_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	87	0.92586	0.001	999	two sided
+88-soils-otus/ucrC/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucr_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	87	0.91308	0.001	999	two sided
+88-soils-otus/ucrC/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrC_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	86	0.94977	0.001	999	two sided
+88-soils-otus/ucrC/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.91709	0.001	999	two sided
+88-soils-otus/ucrC/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.91966	0.001	999	two sided
+88-soils-otus/ucrss/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/ucrss_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88	0.93954	0.001	999	two sided
+88-soils-otus/ucrss/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/uc_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88	0.93791	0.001	999	two sided
+88-soils-otus/ucrss/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/ucr_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88	0.94464	0.001	999	two sided
+88-soils-otus/ucrss/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/ucrC_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	86	0.91370	0.001	999	two sided
+88-soils-otus/ucrss/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/ucrss_fast/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.93830	0.001	999	two sided
+88-soils-otus/ucrss/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/ucrss_fast_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.94230	0.001	999	two sided
+88-soils-otus/ucrss_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/uc_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88	0.93439	0.001	999	two sided
+88-soils-otus/ucrss_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/ucr_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88	0.94291	0.001	999	two sided
+88-soils-otus/ucrss_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/ucrC_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	86	0.90714	0.001	999	two sided
+88-soils-otus/ucrss_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/ucrss_fast/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.94156	0.001	999	two sided
+88-soils-otus/ucrss_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/ucrss_fast_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.94136	0.001	999	two sided
+88-soils-otus/uc_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucr_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88	0.93829	0.001	999	two sided
+88-soils-otus/uc_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrC_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	86	0.91969	0.001	999	two sided
+88-soils-otus/uc_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.93888	0.001	999	two sided
+88-soils-otus/uc_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.94116	0.001	999	two sided
+88-soils-otus/ucr_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrC_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	86	0.90853	0.001	999	two sided
+88-soils-otus/ucr_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.94642	0.001	999	two sided
+88-soils-otus/ucr_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.94651	0.001	999	two sided
+88-soils-otus/ucrC_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.91736	0.001	999	two sided
+88-soils-otus/ucrC_fast/bdiv_even400/unweighted_unifrac_otu_table_even400.txt	88-soils-otus/ucrss_fast_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	86	0.92433	0.001	999	two sided
+88-soils-otus/ucrss_fast/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88-soils-otus/ucrss_fast_wfilter/bdiv_even400/unweighted_unifrac_otu_table_mc1_w_tax_even400.txt	88	0.94494	0.001	999	two sided
