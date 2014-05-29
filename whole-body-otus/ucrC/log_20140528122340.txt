@@ -1,0 +1,49 @@
+Logging started at 12:23:40 on 28 May 2014
+QIIME version: 1.8.0-dev, master@3a5ac1d
+
+qiime_config values:
+blastmat_dir	/data/qiime_software/blast-2.2.22-release/data
+python_exe_fp	/data/qiime_software/python-2.7.3-release/bin/python
+sc_queue	all.q
+template_alignment_lanemask_fp	/data/lanemask_in_1s_and_0s
+pynast_template_alignment_fp	/data/core_set_aligned.fasta.imputed
+working_dir	/tmp/
+seconds_to_sleep	1
+assign_taxonomy_reference_seqs_fp	/data/gg_13_8_otus/rep_set/97_otus.fasta
+torque_queue	friendlyq
+jobs_to_start	1
+cloud_environment	False
+qiime_scripts_dir	/data/qiime_software/qiime-1.8.0-repository-779803b3/bin
+denoiser_min_per_core	50
+cluster_jobs_fp	start_parallel_jobs_torque.py
+assign_taxonomy_id_to_taxonomy_fp	/data/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
+temp_dir	/home/caporaso/temp/
+blastall_fp	/data/qiime_software/blast-2.2.22-release/bin/blastall
+
+parameter file values:
+parallel:jobs_to_start	10
+pick_otus:enable_rev_strand_match	True
+
+Input file md5 sums:
+/home/caporaso/analysis/whole-body/study_449_split_library_seqs.fna: 2ea86cbdd87e4fed76d7723fc322178f
+/data/gg_13_8_otus/rep_set/97_otus.fasta: 50b2269712b3738afb41892bed936c29
+/data/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt: 56ef15dccf2e931ec173f4f977ed649b
+
+Executing commands.
+
+# Pick OTUs command 
+parallel_pick_otus_uclust_ref.py -i /home/caporaso/analysis/whole-body/study_449_split_library_seqs.fna -o /home/caporaso/analysis/2014.04.16-ss-otus//whole-body-otus/ucrC/uclust_ref_picked_otus -r /data/gg_13_8_otus/rep_set/97_otus.fasta -T --jobs_to_start 10 --enable_rev_strand_match
+
+Stdout:
+
+Stderr:
+
+# Make OTU table command 
+make_otu_table.py -i /home/caporaso/analysis/2014.04.16-ss-otus//whole-body-otus/ucrC/uclust_ref_picked_otus/study_449_split_library_seqs_otus.txt -t /data/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt -o /home/caporaso/analysis/2014.04.16-ss-otus//whole-body-otus/ucrC/otu_table.biom 
+
+Stdout:
+
+Stderr:
+
+
+Logging stopped at 12:30:08 on 28 May 2014
