@@ -1,0 +1,50 @@
+# Number of entries refers to the number of rows (or cols) retained in each
+# distance matrix after filtering the distance matrices to include only those
+# samples that were in both distance matrices. p-value contains the correct
+# number of significant digits.
+DM1	DM2	Number of entries	Mantel r statistic	p-value	Number of permutations	Tail type
+moving-pictures-otus/uc/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucr/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1953	0.99196	0.001	999	two sided
+moving-pictures-otus/uc/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrC/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1935	0.97423	0.001	999	two sided
+moving-pictures-otus/uc/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1935	0.98823	0.001	999	two sided
+moving-pictures-otus/uc/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1935	0.98824	0.001	999	two sided
+moving-pictures-otus/uc/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/uc_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1935	0.99195	0.001	999	two sided
+moving-pictures-otus/uc/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucr_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1935	0.99050	0.001	999	two sided
+moving-pictures-otus/uc/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrC_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1934	0.97744	0.001	999	two sided
+moving-pictures-otus/uc/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99128	0.001	999	two sided
+moving-pictures-otus/uc/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99194	0.001	999	two sided
+moving-pictures-otus/ucr/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrC/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1935	0.98180	0.001	999	two sided
+moving-pictures-otus/ucr/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1935	0.99162	0.001	999	two sided
+moving-pictures-otus/ucr/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1935	0.99146	0.001	999	two sided
+moving-pictures-otus/ucr/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/uc_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1935	0.99107	0.001	999	two sided
+moving-pictures-otus/ucr/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucr_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1935	0.99236	0.001	999	two sided
+moving-pictures-otus/ucr/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrC_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1934	0.98375	0.001	999	two sided
+moving-pictures-otus/ucr/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99256	0.001	999	two sided
+moving-pictures-otus/ucr/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99300	0.001	999	two sided
+moving-pictures-otus/ucrC/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1935	0.98624	0.001	999	two sided
+moving-pictures-otus/ucrC/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1935	0.98470	0.001	999	two sided
+moving-pictures-otus/ucrC/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/uc_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1935	0.97287	0.001	999	two sided
+moving-pictures-otus/ucrC/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucr_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1935	0.98162	0.001	999	two sided
+moving-pictures-otus/ucrC/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrC_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1934	0.99387	0.001	999	two sided
+moving-pictures-otus/ucrC/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.98050	0.001	999	two sided
+moving-pictures-otus/ucrC/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.98086	0.001	999	two sided
+moving-pictures-otus/ucrss/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/ucrss_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1953	0.98983	0.001	999	two sided
+moving-pictures-otus/ucrss/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/uc_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1953	0.98847	0.001	999	two sided
+moving-pictures-otus/ucrss/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/ucr_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1953	0.99174	0.001	999	two sided
+moving-pictures-otus/ucrss/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/ucrC_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1934	0.98729	0.001	999	two sided
+moving-pictures-otus/ucrss/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/ucrss_fast/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99157	0.001	999	two sided
+moving-pictures-otus/ucrss/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/ucrss_fast_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99134	0.001	999	two sided
+moving-pictures-otus/ucrss_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/uc_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1953	0.98587	0.001	999	two sided
+moving-pictures-otus/ucrss_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/ucr_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1953	0.98971	0.001	999	two sided
+moving-pictures-otus/ucrss_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/ucrC_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1934	0.98566	0.001	999	two sided
+moving-pictures-otus/ucrss_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/ucrss_fast/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.98950	0.001	999	two sided
+moving-pictures-otus/ucrss_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/ucrss_fast_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99055	0.001	999	two sided
+moving-pictures-otus/uc_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucr_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1953	0.99087	0.001	999	two sided
+moving-pictures-otus/uc_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrC_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1934	0.97569	0.001	999	two sided
+moving-pictures-otus/uc_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99175	0.001	999	two sided
+moving-pictures-otus/uc_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99148	0.001	999	two sided
+moving-pictures-otus/ucr_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrC_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	1934	0.98330	0.001	999	two sided
+moving-pictures-otus/ucr_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99293	0.001	999	two sided
+moving-pictures-otus/ucr_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.99220	0.001	999	two sided
+moving-pictures-otus/ucrC_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.98231	0.001	999	two sided
+moving-pictures-otus/ucrC_fast/bdiv_even5000/unweighted_unifrac_otu_table_even5000.txt	moving-pictures-otus/ucrss_fast_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1934	0.98313	0.001	999	two sided
+moving-pictures-otus/ucrss_fast/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	moving-pictures-otus/ucrss_fast_wfilter/bdiv_even5000/unweighted_unifrac_otu_table_mc1_w_tax_even5000.txt	1950	0.99275	0.001	999	two sided
