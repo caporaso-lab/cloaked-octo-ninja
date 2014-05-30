@@ -106,7 +106,7 @@ See *OTU tables of interest...* list below for paths to the 30 OTU tables that n
  5. ~~Determine relevant category for each data set, grouping existing data as necessary (e.g., bin the pH, L_palm/R_palm, skin sites) and compute significantly different OTUs across categories for all evenly sampled OTU tables (``group_significance.py``)~~
  6. ~~Confirm existence of all necessary data.~~
  7. Then generate the following tables:
-  * ~~table of run times for all runs above (by study)~~ **something is up here - ucr and ucrss are getting similar run times on all data sets... I think we need an illumina data set where more reads will fail to hit the reference... Or, we need to run on more than 10 procs, testing that now.** [TABLE](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0)
+  * ~~table of run times for all runs above (by study)~~ **something is up here - ucr and ucrss are getting similar run times on all data sets... I think we need an illumina data set where more reads will fail to hit the reference... Or, we need to run on more than 10 procs, testing that now for ucrss, need to have run time for ucr for this comparison as well.** [TABLE](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0)
   * ~~table of alpha diversity correlations for all pairwise comparisons of the above runs (by study)~~
   * table of compare_distance_matrices.py results (i.e., Mantel test) for all pairwise comparisons of the above runs (by study), mantel in progress
   * ~~table of top ten significant OTUs from group_significance.py for all pairwise comparisons of the above runs (by study)~~
