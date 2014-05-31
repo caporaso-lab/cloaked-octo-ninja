@@ -36,7 +36,14 @@ Subsampled open reference OTU picking (canonically abbreviated ucrss_w_filter)
 pick_open_reference_otus.py -i <in> -o <out>/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1
 ```
 
-We also run these with the "fast uclust" settings.
+We also run these with the "fast uclust" settings, which are provided in a parameters file as:
+
+```
+pick_otus:max_accepts 1
+pick_otus:max_rejects 8
+pick_otus:stepwords 8
+pick_otus:word_length 8
+```
 
 
 To obtain the "tiny test" data set, which is useful for sanity checking commands, run:
@@ -147,19 +154,7 @@ l = [("moving-pictures-otus/uc/otu_table.biom", "moving-pictures-otus/uc/rep_set
 ("88-soils-otus/ucr_fast/otu_table.biom", "88-soils-otus/ucr_fast/rep_set.tre", "pick_de_novo_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucr_fast -p $PROJECT_DIR/parameters/ucr_fast.txt -aO 10", 400),
 ("88-soils-otus/ucrC_fast/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrC_fast -p $PROJECT_DIR/parameters/ucrC_fast.txt -r $REF_SEQS -aO 10 -t $REF_TAX", 400),
 ("88-soils-otus/ucrss_fast/otu_table_mc1_w_tax.biom", "88-soils-otus/ucrss_fast/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_fast -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0", 400),
-("88-soils-otus/ucrss_fast_wfilter/otu_table_mc1_w_tax.biom", "88-soils-otus/ucrss_fast_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 400),
-
-("glen-canyon-soils-otus/uc/otu_table.biom", "glen-canyon-soils-otus/uc/rep_set.tre", "pick_de_novo_otus.py -i $GLEN_SEQS -o $PROJECT_DIR/glen-canyon-soils-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10", 400),
-("glen-canyon-soils-otus/ucr/otu_table.biom", "glen-canyon-soils-otus/ucr/rep_set.tre", "pick_de_novo_otus.py -i $GLEN_SEQS -o $PROJECT_DIR/glen-canyon-soils-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10", 400),
-("glen-canyon-soils-otus/ucrC/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $GLEN_SEQS -o $PROJECT_DIR/glen-canyon-soils-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10 -t $REF_TAX", 400),
-("glen-canyon-soils-otus/ucrss/otu_table_mc1_w_tax.biom", "glen-canyon-soils-otus/ucrss/rep_set.tre", "pick_open_reference_otus.py -i $GLEN_SEQS -o $PROJECT_DIR/glen-canyon-soils-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0", 400),
-("glen-canyon-soils-otus/ucrss_wfilter/otu_table_mc1_w_tax.biom", "glen-canyon-soils-otus/ucrss_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $GLEN_SEQS -o $PROJECT_DIR/glen-canyon-soils-otus/ucrss_wfilter -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 400),
-
-("glen-canyon-soils-otus/uc_fast/otu_table.biom", "glen-canyon-soils-otus/uc_fast/rep_set.tre", "pick_de_novo_otus.py -i $GLEN_SEQS -o $PROJECT_DIR/glen-canyon-soils-otus/uc_fast -p $PROJECT_DIR/parameters/uc_fast.txt -aO 10", 400),
-("glen-canyon-soils-otus/ucr_fast/otu_table.biom", "glen-canyon-soils-otus/ucr_fast/rep_set.tre", "pick_de_novo_otus.py -i $GLEN_SEQS -o $PROJECT_DIR/glen-canyon-soils-otus/ucr_fast -p $PROJECT_DIR/parameters/ucr_fast.txt -aO 10", 400),
-("glen-canyon-soils-otus/ucrC_fast/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $GLEN_SEQS -o $PROJECT_DIR/glen-canyon-soils-otus/ucrC_fast -p $PROJECT_DIR/parameters/ucrC_fast.txt -r $REF_SEQS -aO 10 -t $REF_TAX", 400),
-("glen-canyon-soils-otus/ucrss_fast/otu_table_mc1_w_tax.biom", "glen-canyon-soils-otus/ucrss_fast/rep_set.tre", "pick_open_reference_otus.py -i $GLEN_SEQS -o $PROJECT_DIR/glen-canyon-soils-otus/ucrss_fast -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0", 400),
-("glen-canyon-soils-otus/ucrss_fast_wfilter/otu_table_mc1_w_tax.biom", "glen-canyon-soils-otus/ucrss_fast_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $GLEN_SEQS -o $PROJECT_DIR/glen-canyon-soils-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 400)]
+("88-soils-otus/ucrss_fast_wfilter/otu_table_mc1_w_tax.biom", "88-soils-otus/ucrss_fast_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 400)]
 
 # generate BIOM table summaries
 for e in l:
