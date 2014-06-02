@@ -185,6 +185,18 @@ for e in l:
     !$alpha_cmd
     !$beta_cmd
 
+# compute taxa summary tables and gzip them
+for e in l:
+    full_otu_table_fp = e[0]
+    input_dir = split(full_otu_table_fp)[0]
+    cmd = 'echo "cd /home/caporaso/analysis/2014.04.16-ss-otus; summarize_taxa.py -i %s -o %s/taxa_tables -L 2,3,4,5,6,7 --suppress_biom_table_output" | qsub ' % (full_otu_table_fp, input_dir)
+    !$cmd
+
+fps = glob('*otus/*/taxa_tables/*txt')
+for fp in fps:
+    cmd = 'gzip %s' % fp
+    !$cmd
+
 # run group significance (moving pictures)
 for e in l[:10]:
     full_otu_table_fp = e[0]
@@ -298,3 +310,12 @@ assign_taxonomy_id_to_taxonomy_fp:	/data/gg_13_8_otus/taxonomy/97_otu_taxonomy.t
                          temp_dir:	/home/caporaso/temp/
                       blastall_fp:	/data/qiime_software/blast-2.2.22-release/bin/blastall
 ```
+
+Temporary notes
+===============
+
+echo "cd /home/caporaso/analysis/2014.04.16-ss-otus; source config-env.sh; pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_fast_O29_r73 -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS_73 -aO 29 --min_otu_size 1 --prefilter_percent_id 0.0" | qsub -keo -N mp-73
+
+
+
+pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr_fast_O29_r73 -p $PROJECT_DIR/parameters/ucr_fast.txt -aO 10
