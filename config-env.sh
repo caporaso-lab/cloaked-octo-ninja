@@ -2,9 +2,18 @@
 
 export PROJECT_DIR=/home/caporaso/analysis/2014.04.16-ss-otus/
 
-export REF_SEQS=/data/gg_13_8_otus/rep_set/97_otus.fasta
-export REF_TAX=/data/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
-export REF_TREE=/data/gg_13_8_otus/trees/97_otus.tree
+export REF_DIR=/data/gg_13_8_otus/
+export REF_SEQS_DIR=$REF_DIR/rep_set/
+export REF_TAX_DIR=$REF_DIR/taxonomy/
+export REF_TREE_DIR=$REF_DIR/trees/
+
+export REF_SEQS=$REF_SEQS_DIR/97_otus.fasta
+export REF_TAX=$REF_TAX_DIR/97_otu_taxonomy.txt
+export REF_TREE=$REF_TREE_DIR/97_otus.tree
+
+export REF_SEQS_73=$REF_SEQS_DIR/73_otus.fasta
+export REF_TAX_73=$REF_TAX_DIR/73_otu_taxonomy.txt
+export REF_TREE_73=$REF_TREE_DIR/73_otus.tree
 
 export TINY_TEST_MAP=/home/caporaso/analysis/tiny-test/map
 export TINY_TEST_SEQS=/home/caporaso/analysis/tiny-test/seqs
