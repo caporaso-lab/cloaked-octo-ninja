@@ -17,6 +17,3 @@ export SOILS_SEQS=/home/caporaso/analysis/88-soils/study_103_split_library_seqs.
 
 export WHOLE_BODY_MAP=$PROJECT_DIR/sample-metadata/whole-body-map.txt
 export WHOLE_BODY_SEQS=/home/caporaso/analysis/whole-body/study_449_split_library_seqs.fna
-
-export GLEN_MAP=/home/caporaso/analysis/glen-canyon/study_1526_split_library_seqs_and_mapping/study_1526_mapping_file.txt
-export GLEN_SEQS=/home/caporaso/analysis/glen-canyon/study_1526_split_library_seqs_and_mapping/study_1526_split_library_seqs.fna
