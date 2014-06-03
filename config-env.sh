@@ -11,6 +11,10 @@ export REF_SEQS=$REF_SEQS_DIR/97_otus.fasta
 export REF_TAX=$REF_TAX_DIR/97_otu_taxonomy.txt
 export REF_TREE=$REF_TREE_DIR/97_otus.tree
 
+export REF_SEQS_61=$REF_SEQS_DIR/61_otus.fasta
+export REF_TAX_61=$REF_TAX_DIR/61_otu_taxonomy.txt
+export REF_TREE_61=$REF_TREE_DIR/61_otus.tree
+
 export REF_SEQS_73=$REF_SEQS_DIR/73_otus.fasta
 export REF_TAX_73=$REF_TAX_DIR/73_otu_taxonomy.txt
 export REF_TREE_73=$REF_TREE_DIR/73_otus.tree
