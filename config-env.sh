@@ -15,6 +15,10 @@ export REF_SEQS_73=$REF_SEQS_DIR/73_otus.fasta
 export REF_TAX_73=$REF_TAX_DIR/73_otu_taxonomy.txt
 export REF_TREE_73=$REF_TREE_DIR/73_otus.tree
 
+export REF_SEQS_82=$REF_SEQS_DIR/82_otus.fasta
+export REF_TAX_82=$REF_TAX_DIR/82_otu_taxonomy.txt
+export REF_TREE_82=$REF_TREE_DIR/82_otus.tree
+
 export TINY_TEST_MAP=/home/caporaso/analysis/tiny-test/map
 export TINY_TEST_SEQS=/home/caporaso/analysis/tiny-test/seqs
 
