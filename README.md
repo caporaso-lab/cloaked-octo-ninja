@@ -256,7 +256,27 @@ for metric in ['unweighted_unifrac', 'weighted_unifrac']:
         cmd = 'echo "cd /home/caporaso/analysis/2014.04.16-ss-otus ; source config-env.sh ; %s" | qsub -keo -N cmp_dist' % cmp_cmd
         !$cmd
 
+# taxa correlation analysis
+taxa_corr_results = {}
+for data_set_id in data_set_ids:
+    for level in range(2,8):
+        curr_results = {}
+        for i, method1 in enumerate(order):
+            curr_results[method1] = {}
+            fp1 = glob("%s-otus/%s/taxa_tables/*L%d.txt.gz" % (data_set_id, method1, level))[0]
+            s1 = pd.io.parsers.read_csv(fp1, sep='\t', compression='gzip',index_col=0).stack()
+            for method2 in order[:i]:
+                fp2 = glob("%s-otus/%s/taxa_tables/*L%d.txt.gz" % (data_set_id, method2, level))[0]
+                s2 = pd.io.parsers.read_csv(fp2, sep='\t', compression='gzip',index_col=0).stack()
+                curr_results[method1][method2] = s1.corr(s2, method='pearson')
+        df = pd.DataFrame(curr_results)
+        df = df.reindex_axis(order,axis=0).reindex_axis(order,axis=1)
+        df.to_csv("%s-otus/taxa_correlations/level_%d.csv" % (data_set_id, level))
+        taxa_corr_results[data_set_id] = {level: df}
+
 ```
+
+
 
 
 QIIME config information
