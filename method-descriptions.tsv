@@ -1,0 +1,16 @@
+abbreviation	title	command	max_accepts	max_rejects	stepwords	wordlength	prefilter_percent_id	min_otu_size	speed_mode	processors	reference_percent_id	subsample_fraction
+uc	De novo	pick_de_novo_otus.py	20	500	20	12	NA	NA	slow	1	0.97	NA
+ucr	Legacy open reference	pick_de_novo_otus.py	20	500	20	12	NA	NA	slow	10	0.97	NA
+ucrC	Closed reference	pick_closed_reference_otus.py	20	500	20	12	NA	NA	slow	10	0.97	NA
+ucrss	Subsampled open reference	pick_open_reference_otus.py	20	500	20	12	0	1	slow	10	0.97	0.001
+ucrss_wfilter	Subsampled open reference, filtered	pick_open_reference_otus.py	20	500	20	12	0.6	1	slow	10	0.97	0.001
+uc_fast	De novo, fast settings	pick_de_novo_otus.py	1	8	8	8	NA	NA	fast	1	0.97	NA
+ucr_fast	Legacy open reference, fast settings	pick_de_novo_otus.py	1	8	8	8	NA	NA	fast	10	0.97	NA
+ucrC_fast	Closed reference, fast settings	pick_closed_reference_otus.py	1	8	8	8	NA	NA	fast	10	0.97	NA
+ucrss_fast	Subsampled open reference, fast settings	pick_open_reference_otus.py	1	8	8	8	0	1	fast	10	0.97	0.001
+ucrss_wfilter_fast	Subsampled open reference, filtered, fast settings	pick_open_reference_otus.py	1	8	8	8	0.6	1	fast	10	0.97	0.001
+ucr_fast_O29_r82	Legacy open reference, fast settings, 82% reference OTUs, 29 processors	pick_de_novo_otus.py	1	8	8	8	0	1	fast	29	0.82	0.001
+ucr_fast_O29_r97	Legacy open reference, fast settings, 29 processors	pick_de_novo_otus.py	1	8	8	8	0	1	fast	29	0.97	0.001
+ucrss_fast_O29_r82	Subsampled open reference, fast settings, 82% reference OTUs, 29 processors	pick_open_reference_otus.py	1	8	8	8	0	1	fast	29	0.82	0.001
+ucrss_fast_O29_r97	Subsampled open reference, fast settings, 29 processors	pick_open_reference_otus.py	1	8	8	8	0	1	fast	29	0.97	0.001
+ucrss_fast_O29_s1	Subsampled open reference, fast settings, 29 processors, 1% subsample	pick_open_reference_otus.py	1	8	8	8	0	1	fast	29	0.97	0.1
