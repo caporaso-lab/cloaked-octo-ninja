@@ -1,0 +1,179 @@
+Logging started at 06:24:48 on 05 Jun 2014
+QIIME version: 1.8.0-dev, master@3a5ac1d
+
+qiime_config values:
+blastmat_dir	/data/qiime_software/blast-2.2.22-release/data
+python_exe_fp	/data/qiime_software/python-2.7.3-release/bin/python
+sc_queue	all.q
+template_alignment_lanemask_fp	/data/lanemask_in_1s_and_0s
+pynast_template_alignment_fp	/data/core_set_aligned.fasta.imputed
+working_dir	/tmp/
+seconds_to_sleep	1
+assign_taxonomy_reference_seqs_fp	/data/gg_13_8_otus/rep_set/97_otus.fasta
+torque_queue	friendlyq
+jobs_to_start	1
+cloud_environment	False
+qiime_scripts_dir	/data/qiime_software/qiime-1.8.0-repository-779803b3/bin
+denoiser_min_per_core	50
+cluster_jobs_fp	start_parallel_jobs_torque.py
+assign_taxonomy_id_to_taxonomy_fp	/data/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
+temp_dir	/home/caporaso/temp/
+blastall_fp	/data/qiime_software/blast-2.2.22-release/bin/blastall
+
+parameter file values:
+assign_taxonomy:reference_seqs_fp	$REF_SEQS
+assign_taxonomy:id_to_taxonomy_fp	$REF_TAX
+parallel:jobs_to_start	29
+pick_otus:max_rejects	8
+pick_otus:word_length	8
+pick_otus:max_accepts	1
+pick_otus:stepwords	8
+pick_otus:enable_rev_strand_match	True
+
+Input file md5 sums:
+/home/caporaso/analysis/moving-pictures/study_550_split_library_seqs.fna: 7ead81df06440acb26c8c06284130e24
+/data/gg_13_8_otus//rep_set//97_otus.fasta: 50b2269712b3738afb41892bed936c29
+
+Executing commands.
+
+# Pick Reference OTUs command 
+parallel_pick_otus_uclust_ref.py -i /home/caporaso/analysis/moving-pictures/study_550_split_library_seqs.fna -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step1_otus -r /data/gg_13_8_otus//rep_set//97_otus.fasta -T --jobs_to_start 29 --max_rejects 8 --stepwords 8 --enable_rev_strand_match --word_length 8 --max_accepts 1
+
+Stdout:
+
+Stderr:
+
+# Generate full failures fasta file command 
+filter_fasta.py -f /home/caporaso/analysis/moving-pictures/study_550_split_library_seqs.fna -s /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/study_550_split_library_seqs_failures.txt -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/failures.fasta
+
+Stdout:
+
+Stderr:
+
+Executing commands.
+
+# Pick rep set command 
+pick_rep_set.py -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/study_550_split_library_seqs_otus.txt -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/step1_rep_set.fna -f /home/caporaso/analysis/moving-pictures/study_550_split_library_seqs.fna
+
+Stdout:
+
+Stderr:
+
+# Subsample the failures fasta file using API 
+python -c "import qiime; qiime.util.subsample_fasta('/home/caporaso/analysis/2014.04.16-ss-otus/moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/failures.fasta', '/home/caporaso/analysis/2014.04.16-ss-otus/moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/subsampled_failures.fasta', '0.100000')
+
+"Executing commands.
+
+# Pick de novo OTUs for new clusters command 
+pick_otus.py -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/subsampled_failures.fasta -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step2_otus/ -m uclust  --max_rejects 8 --enable_rev_strand_match --uclust_otu_id_prefix New.ReferenceOTU --word_length 8 --stepwords 8 --max_accepts 1
+
+Stdout:
+
+Stderr:
+
+# Pick representative set for subsampled failures command 
+pick_rep_set.py -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step2_otus//subsampled_failures_otus.txt -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step2_otus//step2_rep_set.fna -f /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/subsampled_failures.fasta
+
+Stdout:
+
+Stderr:
+
+# Pick reference OTUs using de novo rep set command 
+parallel_pick_otus_uclust_ref.py -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/failures.fasta -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step3_otus/ -r /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step2_otus//step2_rep_set.fna -T --jobs_to_start 29 --max_rejects 8 --stepwords 8 --enable_rev_strand_match --word_length 8 --max_accepts 1
+
+Stdout:
+
+Stderr:
+
+# Create fasta file of step3 failures command 
+filter_fasta.py -f /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/failures.fasta -s /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step3_otus//failures_failures.txt -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step3_otus//failures_failures.fasta
+
+Stdout:
+
+Stderr:
+
+# Pick de novo OTUs on step3 failures command 
+pick_otus.py -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step3_otus//failures_failures.fasta -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step4_otus/ -m uclust  --max_rejects 8 --enable_rev_strand_match --uclust_otu_id_prefix New.CleanUp.ReferenceOTU --word_length 8 --stepwords 8 --max_accepts 1
+
+Stdout:
+
+Stderr:
+
+# Merge OTU maps command 
+cat /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step1_otus/study_550_split_library_seqs_otus.txt /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step3_otus//failures_otus.txt /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step4_otus//failures_failures_otus.txt > /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/final_otu_map.txt
+
+Stdout:
+
+Stderr:
+
+# Pick representative set for subsampled failures command 
+pick_rep_set.py -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step4_otus//failures_failures_otus.txt -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step4_otus//step4_rep_set.fna -f /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/step3_otus//failures_failures.fasta
+
+Stdout:
+
+Stderr:
+
+# Filter singletons from the otu map using API 
+python -c "import qiime; qiime.filter.filter_otus_from_otu_map('/home/caporaso/analysis/2014.04.16-ss-otus/moving-pictures-otus/ucrss_fast_O29_s1/final_otu_map.txt', '/home/caporaso/analysis/2014.04.16-ss-otus/moving-pictures-otus/ucrss_fast_O29_s1/final_otu_map_mc1.txt', '1')"
+
+# Write non-singleton otus representative sequences from step1 to the final rep set file: /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/rep_set.fna
+
+# Copy the full input refseqs file to the new refseq file
+cp /data/gg_13_8_otus//rep_set//97_otus.fasta /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/new_refseqs.fna
+
+# Write non-singleton otus representative sequences from step 2 and step 4 to the final representative set and the new reference set (/home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/rep_set.fna and /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/new_refseqs.fna respectively)
+
+Executing commands.
+
+# Make the otu table command 
+make_otu_table.py -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/final_otu_map_mc1.txt -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/otu_table_mc1.biom
+
+Stdout:
+
+Stderr:
+
+Executing commands.
+
+# Assign taxonomy command 
+parallel_assign_taxonomy_uclust.py -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/rep_set.fna -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/uclust_assigned_taxonomy -T --jobs_to_start 29 --reference_seqs_fp $REF_SEQS --id_to_taxonomy_fp $REF_TAX
+
+Stdout:
+
+Stderr:
+
+Executing commands.
+
+# Add taxa to OTU table command 
+biom add-metadata -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/otu_table_mc1.biom --observation-metadata-fp /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/uclust_assigned_taxonomy/rep_set_tax_assignments.txt -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/otu_table_mc1_w_tax.biom --sc-separated taxonomy --observation-header OTUID,taxonomy
+
+Stdout:
+
+Stderr:
+
+Executing commands.
+
+# Align sequences command 
+parallel_align_seqs_pynast.py -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/rep_set.fna -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/pynast_aligned_seqs -T --jobs_to_start 29 
+
+Stdout:
+
+Stderr:
+
+# Filter alignment command 
+filter_alignment.py -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/pynast_aligned_seqs -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/pynast_aligned_seqs/rep_set_aligned.fasta 
+
+Stdout:
+
+Stderr:
+
+# Build phylogenetic tree command 
+make_phylogeny.py -i /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/pynast_aligned_seqs/rep_set_aligned_pfiltered.fasta -o /home/caporaso/analysis/2014.04.16-ss-otus//moving-pictures-otus/ucrss_fast_O29_s1/rep_set.tre 
+
+Stdout:
+
+Stderr:
+
+Executing commands.
+
+
+Logging stopped at 10:33:19 on 05 Jun 2014
