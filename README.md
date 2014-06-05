@@ -257,10 +257,8 @@ for metric in ['unweighted_unifrac', 'weighted_unifrac']:
         !$cmd
 
 # taxa correlation analysis
-taxa_corr_results = {}
 for data_set_id in data_set_ids:
     for level in range(2,8):
-        curr_results = {}
         for i, method1 in enumerate(order):
             curr_results[method1] = {}
             fp1 = glob("%s-otus/%s/taxa_tables/*L%d.txt.gz" % (data_set_id, method1, level))[0]
@@ -272,7 +270,6 @@ for data_set_id in data_set_ids:
         df = pd.DataFrame(curr_results)
         df = df.reindex_axis(order,axis=0).reindex_axis(order,axis=1)
         df.to_csv("%s-otus/taxa_correlations/level_%d.csv" % (data_set_id, level))
-        taxa_corr_results[data_set_id] = {level: df}
 
 ```
 
