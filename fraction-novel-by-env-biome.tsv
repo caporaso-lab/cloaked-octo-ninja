@@ -1,0 +1,28 @@
+EnvironmentalBiome	Average de novo OTUs (10K sequences per sample)	SD de novo OTUs (10K sequences per sample)	Average Reference OTUs (10k sequences per sample)	SD Reference OTUs (10k sequences per sample)	% novel diversity (10k seqs per sample)	% error novel diversity (10K seqs per sample)	number of samples
+mangrove biome	2169	1159	354	73	0.86	0.46	7
+tropical humid forests	2398	260	397	35	0.858	0.094	26
+tundra biome	1771	403	312	117	0.85	0.201	110
+deserts and xeric shrubland biome	3917	127	707	15	0.847	0.028	7
+taiga	2598	102	505	35	0.837	0.035	4
+marine biome	2040	1048	484	410	0.808	0.446	890
+aquatic biome	714	299	177	199	0.801	0.403	762
+freshwater biome	768	541	194	120	0.798	0.576	375
+warm deserts and semideserts	2386	473	607	147	0.797	0.166	97
+tropical and subtropical moist broadleaf forest biome	3072	125	846	18	0.784	0.032	2
+temperate needle-leaf forests or woodlands	2836	159	785	132	0.783	0.057	21
+polar biome	1721	886	483	218	0.781	0.414	277
+tropical and subtropical coniferous forest biome	1993	256	579	94	0.775	0.106	3
+mixed island systems	1552	618	511	203	0.752	0.315	124
+marginal sea	1795	325	611	225	0.746	0.164	7
+temperate coniferous forest biome	2504	1206	885	201	0.739	0.361	19
+mediterranean forests, woodlands, and shrub biome	695	361	275	195	0.717	0.424	371
+large river biome	1844	629	743	369	0.713	0.282	5
+terrestrial biome	2714	222	1138	163	0.705	0.072	627
+nest of bird	821	276	355	138	0.698	0.262	313
+Temperate broadleaf and mixed forest biome	1910	491	879	235	0.685	0.195	14
+temperate grasslands	2745	290	1315	164	0.676	0.082	696
+animal-associated habitat	758	329	376	240	0.668	0.359	1036
+mammalia-associated habitat	973	357	583	222	0.625	0.27	1918
+Cold-winter (continental) deserts and semideserts	847	210	551	215	0.606	0.215	102
+Temperate grasslands, savannas, and shrubland biome	1688	272	1497	275	0.53	0.121	85
+human-associated habitat	292	242	590	366	0.331	0.498	1597
