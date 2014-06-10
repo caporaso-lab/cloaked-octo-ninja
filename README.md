@@ -1,5 +1,20 @@
-Comparative analysis of high-level OTU picking protocols
-========================================================
+Consistent, comprehensive and computationally efficient OTU definitions: data files
+===================================================================================
+
+This repository contains commands, shell scripts, processed data files, and IPython Notebooks for:
+
+Consistent, comprehensive and computationally efficient OTU definitions
+Jai Ram Rideout, Yan He, Jose A Navas-Molina, William A Walters, Luke K Ursell, Sean M. Gibbons, John Chase, Daniel McDonald, Antiono Gonzalez, Adam Robbins-Pianka, Jose C. Clemente, Jack A. Gilbert, Susan M. Huse, Hong-Wei Zhou, Rob Knight, and J Gregory Caporaso
+Submitted to [PeerJ](https://peerj.com), June 2014.
+
+The raw sequence data analyzed in this study is available in the QIIME Database under study ids 103 (88-soils), 449 (whole-body), and 550 (moving-pictures).
+
+All analyses were run on RHEL using QIIME 1.8.0-dev (specific configuration details below).
+
+An IPython Notebook illustrating how to load and access all data in the tables presented in the paper is available for [static viewing on nbviewer](http://nbviewer.ipython.org/github/gregcaporaso/cloaked-octo-ninja/blob/master/analyses.ipynb) or can be run from this repository (depends on pandas, numpy, and the files contained in this repository).
+
+The following sections illustrate how to generate the data that was not included in this repository (due to size).
+
 
 Configuring and testing the environment
 ---------------------------------------
@@ -52,7 +67,7 @@ To obtain the "tiny test" data set, which is useful for sanity checking commands
 python -c "from qiime.test import write_test_data; write_test_data('tiny-test')"
 ```
 
-To run the four OTU picking protocols on the tiny-test data set, run:
+To run four OTU picking protocols on the tiny-test data set, run:
 
 ```
 source /home/caporaso/analysis/2014.04.16-ss-otus/config-env.sh; pick_de_novo_otus.py -i $TINY_TEST_SEQS -o $PROJECT_DIR/tiny-test-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10; pick_de_novo_otus.py -i $TINY_TEST_SEQS -o $PROJECT_DIR/tiny-test-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10; pick_closed_reference_otus.py -i $TINY_TEST_SEQS -o $PROJECT_DIR/tiny-test-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10; pick_open_reference_otus.py -i $TINY_TEST_SEQS -o $PROJECT_DIR/tiny-test-otus/ucrss -p $PROJECT_DIR/parameters/ucrss.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0
@@ -76,15 +91,6 @@ tiny-test-otus/ucrss/log_20140416145014.txt:Logging stopped at 14:52:01 on 16 Ap
 Input data sets
 ---------------
 
-**Whole body**
-
-```
-count_seqs.py -i $WHOLE_BODY_SEQS
-
-792831  : /home/caporaso/analysis/whole-body/study_449_split_library_seqs.fna (Sequence lengths (mean +/- std): 228.5124 +/- 16.0318)
-```
-
-
 **88 soils**
 
 ```
@@ -101,25 +107,24 @@ count_seqs.py -i $MOVING_PICTURES_SEQS
 68666081  : /home/caporaso/analysis/moving-pictures/study_550_split_library_seqs.fna (Sequence lengths (mean +/- std): 123.2359 +/- 17.4283)
 ```
 
-Next steps
-----------
-
-See *OTU tables of interest...* list below for paths to the 30 OTU tables that need to be analyzed here.
-
- 1. ~~Missing some trees, regenerate~~
- 2. ~~Determine even sampling depths for all OTU tables and generate evenly sampled OTU tables (``biom summarize_table; single_rarefaction.py``).~~
- 3. ~~Compute observed species and PD for all evenly sampled OTU tables (``alpha diversity.py -m observed_species,PD_whole_tree``).~~
- 4. ~~Generate weighted and unweighted UniFrac distance matrices for all evenly sampled OTU tables (``beta_diversity.py`` - will require identifying the appropriate tree for all)~~ in progress
- 5. ~~Determine relevant category for each data set, grouping existing data as necessary (e.g., bin the pH, L_palm/R_palm, skin sites) and compute significantly different OTUs across categories for all evenly sampled OTU tables (``group_significance.py``)~~
- 6. ~~Confirm existence of all necessary data.~~
- 7. Then generate the following tables:
-  * ~~table of run times for all runs above (by study)~~ **something is up here - ucr and ucrss are getting similar run times on all data sets... I think we need an illumina data set where more reads will fail to hit the reference... Or, we need to run on more than 10 procs, testing that now for ucrss, need to have run time for ucr for this comparison as well.** [TABLE](https://docs.google.com/spreadsheets/d/1eVTVpV6cDj3yfRlVzd_zss_4WgxwDYrlfNmItdrRg9w/edit#gid=0)
-  * ~~table of alpha diversity correlations for all pairwise comparisons of the above runs (by study)~~
-  * table of compare_distance_matrices.py results (i.e., Mantel test) for all pairwise comparisons of the above runs (by study), mantel in progress
-  * ~~table of top ten significant OTUs from group_significance.py for all pairwise comparisons of the above runs (by study)~~
- 8. Table and plot of new OTUs by ENV_BIOME for the EMP run. [TABLE](https://docs.google.com/spreadsheet/ccc?key=0AhnFIU32uKRYdFd2T3hWdXA0bjc0RTUxR09aUkRuZUE&usp=sharing#gid=0)
+**Whole body**
 
 ```
+count_seqs.py -i $WHOLE_BODY_SEQS
+
+792831  : /home/caporaso/analysis/whole-body/study_449_split_library_seqs.fna (Sequence lengths (mean +/- std): 228.5124 +/- 16.0318)
+```
+
+Paths to required data files (relative to ``$PROJECT_DIR``) and other per-run information. Each entry in this list contains the following values:
+
+1. OTU table path
+2. OTU tree path
+3. QIIME 1.8.0-dev OTU picking command
+4. Even sampling depth
+
+
+```
+
 l = [("moving-pictures-otus/uc/otu_table.biom", "moving-pictures-otus/uc/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/uc -p $PROJECT_DIR/parameters/uc.txt -aO 10", 5000),
 ("moving-pictures-otus/ucr/otu_table.biom", "moving-pictures-otus/ucr/rep_set.tre", "pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr -p $PROJECT_DIR/parameters/ucr.txt -aO 10", 5000),
 ("moving-pictures-otus/ucrC/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrC -p $PROJECT_DIR/parameters/ucrC.txt -r $REF_SEQS -aO 10 -t $REF_TAX", 5000),
