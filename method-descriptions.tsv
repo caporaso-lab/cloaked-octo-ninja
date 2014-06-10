@@ -8,7 +8,7 @@ uc_fast	De novo, fast settings	pick_de_novo_otus.py	1	8	8	8	NA	NA	fast	1	0.97	NA
 ucr_fast	Legacy open reference, fast settings	pick_de_novo_otus.py	1	8	8	8	NA	NA	fast	10	0.97	NA
 ucrC_fast	Closed reference, fast settings	pick_closed_reference_otus.py	1	8	8	8	NA	NA	fast	10	0.97	NA
 ucrss_fast	Subsampled open reference, fast settings	pick_open_reference_otus.py	1	8	8	8	0	1	fast	10	0.97	0.001
-ucrss_wfilter_fast	Subsampled open reference, filtered, fast settings	pick_open_reference_otus.py	1	8	8	8	0.6	1	fast	10	0.97	0.001
+ucrss_fast_wfilter	Subsampled open reference, filtered, fast settings	pick_open_reference_otus.py	1	8	8	8	0.6	1	fast	10	0.97	0.001
 ucr_fast_O29_r82	Legacy open reference, fast settings, 82% reference OTUs, 29 processors	pick_de_novo_otus.py	1	8	8	8	0	1	fast	29	0.82	0.001
 ucr_fast_O29_r97	Legacy open reference, fast settings, 29 processors	pick_de_novo_otus.py	1	8	8	8	0	1	fast	29	0.97	0.001
 ucrss_fast_O29_r82	Subsampled open reference, fast settings, 82% reference OTUs, 29 processors	pick_open_reference_otus.py	1	8	8	8	0	1	fast	29	0.82	0.001
