@@ -3,9 +3,12 @@ Consistent, comprehensive and computationally efficient OTU definitions: data fi
 
 This repository contains commands, shell scripts, processed data files, and IPython Notebooks for:
 
-Consistent, comprehensive and computationally efficient OTU definitions
-Jai Ram Rideout, Yan He, Jose A Navas-Molina, William A Walters, Luke K Ursell, Sean M. Gibbons, John Chase, Daniel McDonald, Antiono Gonzalez, Adam Robbins-Pianka, Jose C. Clemente, Jack A. Gilbert, Susan M. Huse, Hong-Wei Zhou, Rob Knight, and J Gregory Caporaso
+
+*Consistent, comprehensive and computationally efficient OTU definitions.*
+Jai Ram Rideout, Yan He, Jose A Navas-Molina, William A Walters, Luke K Ursell, Sean M. Gibbons, John Chase, Daniel McDonald, Antiono Gonzalez, Adam Robbins-Pianka, Jose C. Clemente, Jack A. Gilbert, Susan M. Huse, Hong-Wei Zhou, Rob Knight, and J Gregory Caporaso.
 Submitted to [PeerJ](https://peerj.com), June 2014.
+
+**IF YOU HAVE DOWNLOADED A STATIC VERSION OF THIS REPOSITORY, WE HIGHLY RECOMMEND THAT YOU DOWNLOAD THE LATEST FROM [OUR GITHUB REPOSITORY](https://github.com/gregcaporaso/cloaked-octo-ninja) AS UPDATES AND BUG FIXES WILL BE POSTED THERE.**
 
 The raw sequence data analyzed in this study is available in the QIIME Database under study ids 103 (88-soils), 449 (whole-body), and 550 (moving-pictures).
 
@@ -16,10 +19,32 @@ An IPython Notebook illustrating how to load and access all data in the tables p
 The following sections illustrate how to generate the data that was not included in this repository (due to size).
 
 
-Configuring and testing the environment
----------------------------------------
+Configuring the environment
+---------------------------
 
-To configure the environment, you can run:
+To run the analyses presented in this section, you'll need to following:
+
+1. QIIME 1.8.0 (base installation is sufficient)
+2. Greengenes 13_8
+3. Post-split-libraries sequence data for QIIME Database study ids 103 (88-soils), 449 (whole-body), and 550 (moving-pictures).
+
+To configure the environment, you should first clone the GitHub repository (this will required that you have git installed) and change to that directory. From here, we will call that your *project directory*:
+
+```
+git clone git@github.com:gregcaporaso/cloaked-octo-ninja.git
+cd cloaked-octo-ninja
+```
+
+You should next edit ``config-env.sh`` to:
+1. define the ``PROJECT_DIR`` environment variable as the absolute path to your project directory, and
+2. define the ``REF_DIR`` environment variable as the absolute path to your  Greengenes reference sequences directory, and
+3. define the ``MOVING_PICTURES_SEQS``, ``SOILS_SEQS``, and ``WHOLE_BODY_SEQS`` environment variables as the absolute paths to the post-split-libraries sequence files that you downloaded from the QIIME DB.
+
+Testing the environment
+-----------------------
+
+All commands below assume that you are working from your project directory. To configure your environment, run:
+
 ```
 source config-env.sh
 ```
@@ -88,8 +113,8 @@ tiny-test-otus/ucrss/log_20140416145014.txt:Logging started at 14:50:14 on 16 Ap
 tiny-test-otus/ucrss/log_20140416145014.txt:Logging stopped at 14:52:01 on 16 Apr 2014
 ```
 
-Input data sets
----------------
+Input data sets details
+-----------------------
 
 **88 soils**
 
@@ -115,7 +140,10 @@ count_seqs.py -i $WHOLE_BODY_SEQS
 792831  : /home/caporaso/analysis/whole-body/study_449_split_library_seqs.fna (Sequence lengths (mean +/- std): 228.5124 +/- 16.0318)
 ```
 
-Paths to required data files (relative to ``$PROJECT_DIR``) and other per-run information. Each entry in this list contains the following values:
+Commands for data preparation
+-----------------------------
+
+Define paths to required data files (relative to ``$PROJECT_DIR``) and other per-run information. Each entry in this list contains the following values:
 
 1. OTU table path
 2. OTU tree path
@@ -160,6 +188,10 @@ l = [("moving-pictures-otus/uc/otu_table.biom", "moving-pictures-otus/uc/rep_set
 ("88-soils-otus/ucrC_fast/otu_table.biom", "$REF_TREE", "pick_closed_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrC_fast -p $PROJECT_DIR/parameters/ucrC_fast.txt -r $REF_SEQS -aO 10 -t $REF_TAX", 400),
 ("88-soils-otus/ucrss_fast/otu_table_mc1_w_tax.biom", "88-soils-otus/ucrss_fast/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_fast -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1 --prefilter_percent_id 0.0", 400),
 ("88-soils-otus/ucrss_fast_wfilter/otu_table_mc1_w_tax.biom", "88-soils-otus/ucrss_fast_wfilter/rep_set.tre", "pick_open_reference_otus.py -i $SOILS_SEQS -o $PROJECT_DIR/88-soils-otus/ucrss_fast_wfilter -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 10 --min_otu_size 1", 400)]
+```
+
+Perform analyses:
+```
 
 # generate BIOM table summaries
 for e in l:
@@ -335,7 +367,7 @@ assign_taxonomy_id_to_taxonomy_fp:	/data/gg_13_8_otus/taxonomy/97_otu_taxonomy.t
 
 Temporary notes
 ===============
-
+```
 echo "cd /home/caporaso/analysis/2014.04.16-ss-otus; source config-env.sh; pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_fast_O29_r73 -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS_73 -aO 29 --min_otu_size 1 --prefilter_percent_id 0.0" | qsub -keo -N mp-73
 
 echo "cd /home/caporaso/analysis/2014.04.16-ss-otus; source config-env.sh; pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr_fast_O29_r97 -p $PROJECT_DIR/parameters/ucr_fast.txt -aO 29 ; pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_fast_O29_r97 -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS -aO 29 --min_otu_size 1 --prefilter_percent_id 0.0" | qsub -keo -N mp-97
@@ -344,3 +376,4 @@ echo "cd /home/caporaso/analysis/2014.04.16-ss-otus; source config-env.sh; pick_
 
 
 echo "cd /home/caporaso/analysis/2014.04.16-ss-otus; source config-env.sh; pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr_fast_O29_r73 -p $PROJECT_DIR/parameters/ucr_fast_r73.txt -aO 29 ; pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_fast_O29_r82 -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS_82 -aO 29 --min_otu_size 1 --prefilter_percent_id 0.0 ; pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr_fast_O29_r82 -p $PROJECT_DIR/parameters/ucr_fast_r82.txt -aO 29 ; pick_open_reference_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucrss_fast_O29_r61 -p $PROJECT_DIR/parameters/ucrss_fast.txt -r $REF_SEQS_61 -aO 29 --min_otu_size 1 --prefilter_percent_id 0.0 ; pick_de_novo_otus.py -i $MOVING_PICTURES_SEQS -o $PROJECT_DIR/moving-pictures-otus/ucr_fast_O29_r61 -p $PROJECT_DIR/parameters/ucr_fast_r61.txt -aO 29" | qsub -keo -N mp-runtime
+```
