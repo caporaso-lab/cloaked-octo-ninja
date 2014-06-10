@@ -36,6 +36,7 @@ cd cloaked-octo-ninja
 ```
 
 You should next edit ``config-env.sh`` to:
+
 1. define the ``PROJECT_DIR`` environment variable as the absolute path to your project directory, and
 2. define the ``REF_DIR`` environment variable as the absolute path to your  Greengenes reference sequences directory, and
 3. define the ``MOVING_PICTURES_SEQS``, ``SOILS_SEQS``, and ``WHOLE_BODY_SEQS`` environment variables as the absolute paths to the post-split-libraries sequence files that you downloaded from the QIIME DB.
