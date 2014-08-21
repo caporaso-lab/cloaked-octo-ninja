@@ -3,10 +3,7 @@ Consistent, comprehensive and computationally efficient OTU definitions: data fi
 
 This repository contains commands, shell scripts, processed data files, and IPython Notebooks for:
 
-
-*Consistent, comprehensive and computationally efficient OTU definitions.*
-Jai Ram Rideout, Yan He, Jose A Navas-Molina, William A Walters, Luke K Ursell, Sean M. Gibbons, John Chase, Daniel McDonald, Antiono Gonzalez, Adam Robbins-Pianka, Jose C. Clemente, Jack A. Gilbert, Susan M. Huse, Hong-Wei Zhou, Rob Knight, and J Gregory Caporaso.
-Submitted to [PeerJ](https://peerj.com), June 2014.
+**Subsampled open-reference clustering creates consistent, comprehensive OTU definitions and scales to billions of sequences.** Rideout JR, He Y, Navas-Molina JA, Walters WA, Ursell LK, Gibbons SM, Chase J, McDonald D, Gonzalez A, Robbins-Pianka A, Clemente JC, Gilbert JA, Huse SM, Zhou H, Knight R, Caporaso JG. (2014) PeerJ 2:e545. http://dx.doi.org/10.7717/peerj.545
 
 **IF YOU HAVE DOWNLOADED A STATIC VERSION OF THIS REPOSITORY, WE HIGHLY RECOMMEND THAT YOU DOWNLOAD THE LATEST FROM [OUR GITHUB REPOSITORY](https://github.com/gregcaporaso/cloaked-octo-ninja) AS UPDATES AND BUG FIXES WILL BE POSTED THERE.**
 
