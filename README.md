@@ -1,5 +1,5 @@
-**Subsampled open-reference clustering creates consistent, comprehensive OTU definitions and scales to billions of sequences: data files
-========================================================================================================================================
+Subsampled open-reference clustering creates consistent, comprehensive OTU definitions and scales to billions of sequences: data files
+======================================================================================================================================
 
 This repository contains commands, shell scripts, processed data files, and IPython Notebooks for:
 
