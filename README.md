@@ -21,9 +21,9 @@ Configuring the environment
 
 To run the analyses presented in this section, you'll need to following:
 
-1. QIIME 1.8.0 (base installation is sufficient)
-2. Greengenes 13_8
-3. Post-split-libraries sequence data for QIIME Database study ids 103 (88-soils), 449 (whole-body), and 550 (moving-pictures).
+1. [QIIME](www.qiime.org) 1.8.0 ([base installation](http://qiime.org/install/install.html#qiime-base-install-standard-qiime-workflow-with-default-parameters) is sufficient)
+2. Greengenes ([13_8](ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz))
+3. Post-split-libraries sequence data for QIIME Database study ids 103 ([88-soils](ftp://thebeast.colorado.edu/pub/QIIME_DB_Public_Studies/study_103_split_library_seqs_and_mapping.zip)), 449 ([whole-body]((ftp://thebeast.colorado.edu/pub/QIIME_DB_Public_Studies/study_449_split_library_seqs_and_mapping.zip)), and 550 ([moving-pictures]((ftp://thebeast.colorado.edu/pub/QIIME_DB_Public_Studies/study_550_split_library_seqs_and_mapping.zip)).
 
 To configure the environment, you should first clone the GitHub repository (this will required that you have git installed) and change to that directory. From here, we will call that your *project directory*:
 
